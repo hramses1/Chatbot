@@ -1,0 +1,1195 @@
+[
+    {
+        "label": "runpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "runpy",
+        "description": "runpy",
+        "detail": "runpy",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "sysconfig",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sysconfig",
+        "description": "sysconfig",
+        "detail": "sysconfig",
+        "documentation": {}
+    },
+    {
+        "label": "tempfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "winreg",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "winreg",
+        "description": "winreg",
+        "detail": "winreg",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "BaseAxios",
+        "importPath": "common.base_axios",
+        "description": "common.base_axios",
+        "isExtraImport": true,
+        "detail": "common.base_axios",
+        "documentation": {}
+    },
+    {
+        "label": "URL_API",
+        "importPath": "config.config",
+        "description": "config.config",
+        "isExtraImport": true,
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "APP_NAME",
+        "importPath": "config.config",
+        "description": "config.config",
+        "isExtraImport": true,
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "spacy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "spacy",
+        "description": "spacy",
+        "detail": "spacy",
+        "documentation": {}
+    },
+    {
+        "label": "Matcher",
+        "importPath": "spacy.matcher",
+        "description": "spacy.matcher",
+        "isExtraImport": true,
+        "detail": "spacy.matcher",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "get_category_api",
+        "importPath": "feature.chatbot.api.category_api",
+        "description": "feature.chatbot.api.category_api",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.api.category_api",
+        "documentation": {}
+    },
+    {
+        "label": "get_categories_api",
+        "importPath": "feature.chatbot.api.category_api",
+        "description": "feature.chatbot.api.category_api",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.api.category_api",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryModel",
+        "importPath": "feature.chatbot.models.category_model",
+        "description": "feature.chatbot.models.category_model",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.models.category_model",
+        "documentation": {}
+    },
+    {
+        "label": "get_close_matches",
+        "importPath": "difflib",
+        "description": "difflib",
+        "isExtraImport": true,
+        "detail": "difflib",
+        "documentation": {}
+    },
+    {
+        "label": "get_close_matches",
+        "importPath": "difflib",
+        "description": "difflib",
+        "isExtraImport": true,
+        "detail": "difflib",
+        "documentation": {}
+    },
+    {
+        "label": "get_close_matches",
+        "importPath": "difflib",
+        "description": "difflib",
+        "isExtraImport": true,
+        "detail": "difflib",
+        "documentation": {}
+    },
+    {
+        "label": "get_service_api",
+        "importPath": "feature.chatbot.api.service_api",
+        "description": "feature.chatbot.api.service_api",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.api.service_api",
+        "documentation": {}
+    },
+    {
+        "label": "get_services_api",
+        "importPath": "feature.chatbot.api.service_api",
+        "description": "feature.chatbot.api.service_api",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.api.service_api",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceModel",
+        "importPath": "feature.chatbot.models.service_model",
+        "description": "feature.chatbot.models.service_model",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.models.service_model",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialties_api",
+        "importPath": "feature.chatbot.api.specialty_api",
+        "description": "feature.chatbot.api.specialty_api",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.api.specialty_api",
+        "documentation": {}
+    },
+    {
+        "label": "SpecialtyModel",
+        "importPath": "feature.chatbot.models.specialty_model",
+        "description": "feature.chatbot.models.specialty_model",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.models.specialty_model",
+        "documentation": {}
+    },
+    {
+        "label": "Axios",
+        "importPath": "common.axios",
+        "description": "common.axios",
+        "isExtraImport": true,
+        "detail": "common.axios",
+        "documentation": {}
+    },
+    {
+        "label": "Axios",
+        "importPath": "common.axios",
+        "description": "common.axios",
+        "isExtraImport": true,
+        "detail": "common.axios",
+        "documentation": {}
+    },
+    {
+        "label": "Axios",
+        "importPath": "common.axios",
+        "description": "common.axios",
+        "isExtraImport": true,
+        "detail": "common.axios",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "get_category_action",
+        "importPath": "feature.chatbot.action.category.get_category_action",
+        "description": "feature.chatbot.action.category.get_category_action",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.action.category.get_category_action",
+        "documentation": {}
+    },
+    {
+        "label": "classify_servicies",
+        "importPath": "feature.chatbot.services.services_service",
+        "description": "feature.chatbot.services.services_service",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.services_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialties_action",
+        "importPath": "feature.chatbot.action.specialty.get_specialties_action",
+        "description": "feature.chatbot.action.specialty.get_specialties_action",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.action.specialty.get_specialties_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialty_action",
+        "importPath": "feature.chatbot.action.specialty.get_specialties_action",
+        "description": "feature.chatbot.action.specialty.get_specialties_action",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.action.specialty.get_specialties_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialties_action",
+        "importPath": "feature.chatbot.action.specialty.get_specialties_action",
+        "description": "feature.chatbot.action.specialty.get_specialties_action",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.action.specialty.get_specialties_action",
+        "documentation": {}
+    },
+    {
+        "label": "classify_specialties",
+        "importPath": "feature.chatbot.services.specialty_service",
+        "description": "feature.chatbot.services.specialty_service",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.specialty_service",
+        "documentation": {}
+    },
+    {
+        "label": "classify_categories",
+        "importPath": "feature.chatbot.services.category_service",
+        "description": "feature.chatbot.services.category_service",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.category_service",
+        "documentation": {}
+    },
+    {
+        "label": "MessageModel",
+        "importPath": "feature.chatbot.models.message_model",
+        "description": "feature.chatbot.models.message_model",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.models.message_model",
+        "documentation": {}
+    },
+    {
+        "label": "get_service_action",
+        "importPath": "feature.chatbot.action.service.get_services_action",
+        "description": "feature.chatbot.action.service.get_services_action",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.action.service.get_services_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_service_details_message",
+        "importPath": "feature.chatbot.services.other_service",
+        "description": "feature.chatbot.services.other_service",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_welcome_message",
+        "importPath": "feature.chatbot.services.other_service",
+        "description": "feature.chatbot.services.other_service",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialties_message",
+        "importPath": "feature.chatbot.services.other_service",
+        "description": "feature.chatbot.services.other_service",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_list_options_message",
+        "importPath": "feature.chatbot.services.other_service",
+        "description": "feature.chatbot.services.other_service",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_interest_query_message",
+        "importPath": "feature.chatbot.services.other_service",
+        "description": "feature.chatbot.services.other_service",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "format_message",
+        "importPath": "common.utils",
+        "description": "common.utils",
+        "isExtraImport": true,
+        "detail": "common.utils",
+        "documentation": {}
+    },
+    {
+        "label": "chat_window",
+        "importPath": "feature.chatbot.components.chatbot_window",
+        "description": "feature.chatbot.components.chatbot_window",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.components.chatbot_window",
+        "documentation": {}
+    },
+    {
+        "label": "MessageService",
+        "importPath": "feature.chatbot.services.response_services",
+        "description": "feature.chatbot.services.response_services",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.services.response_services",
+        "documentation": {}
+    },
+    {
+        "label": "display_chatbot",
+        "importPath": "feature.chatbot.view.chatbot_view",
+        "description": "feature.chatbot.view.chatbot_view",
+        "isExtraImport": true,
+        "detail": "feature.chatbot.view.chatbot_view",
+        "documentation": {}
+    },
+    {
+        "label": "bin_dir",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "bin_dir = os.path.dirname(abs_file)\nbase = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "base = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PATH\"]",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV\"]",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV_PROMPT\"]",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "prev_length",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "prev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.path[:]",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "sys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.real_prefix",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "sys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.prefix",
+        "kind": 5,
+        "importPath": "env.Scripts.activate_this",
+        "description": "env.Scripts.activate_this",
+        "peekOfCode": "sys.prefix = base",
+        "detail": "env.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "Tee",
+        "kind": 6,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "class Tee:\n    def __init__(self, file):\n        self.f = file\n    def write(self, what):\n        if self.f is not None:\n            try:\n                self.f.write(what.replace(\"\\n\", \"\\r\\n\"))\n            except OSError:\n                pass\n        tee_f.write(what)",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "CopyTo",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def CopyTo(desc, src, dest):\n    import win32api\n    import win32con\n    while 1:\n        try:\n            win32api.CopyFile(src, dest, 0)\n            return\n        except win32api.error as details:\n            if details.winerror == 5:  # access denied - user not admin.\n                raise",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "LoadSystemModule",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def LoadSystemModule(lib_dir, modname):\n    # See if this is a debug build.\n    import importlib.machinery\n    import importlib.util\n    suffix = \"_d\" if \"_d.pyd\" in importlib.machinery.EXTENSION_SUFFIXES else \"\"\n    filename = \"%s%d%d%s.dll\" % (\n        modname,\n        sys.version_info.major,\n        sys.version_info.minor,\n        suffix,",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "SetPyKeyVal",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def SetPyKeyVal(key_name, value_name, value):\n    root_hkey = get_root_hkey()\n    root_key = winreg.OpenKey(root_hkey, root_key_name)\n    try:\n        my_key = winreg.CreateKey(root_key, key_name)\n        try:\n            winreg.SetValueEx(my_key, value_name, 0, winreg.REG_SZ, value)\n            if verbose:\n                print(f\"-> {root_key_name}\\\\{key_name}[{value_name}]={value!r}\")\n        finally:",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "UnsetPyKeyVal",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def UnsetPyKeyVal(key_name, value_name, delete_key=False):\n    root_hkey = get_root_hkey()\n    root_key = winreg.OpenKey(root_hkey, root_key_name)\n    try:\n        my_key = winreg.OpenKey(root_key, key_name, 0, winreg.KEY_SET_VALUE)\n        try:\n            winreg.DeleteValue(my_key, value_name)\n            if verbose:\n                print(f\"-> DELETE {root_key_name}\\\\{key_name}[{value_name}]\")\n        finally:",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterCOMObjects",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterCOMObjects(register=True):\n    import win32com.server.register\n    if register:\n        func = win32com.server.register.RegisterClasses\n    else:\n        func = win32com.server.register.UnregisterClasses\n    flags = {}\n    if not verbose:\n        flags[\"quiet\"] = 1\n    for module, klass_name in com_modules:",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterHelpFile",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterHelpFile(register=True, lib_dir=None):\n    if lib_dir is None:\n        lib_dir = sysconfig.get_paths()[\"platlib\"]\n    if register:\n        # Register the .chm help file.\n        chm_file = os.path.join(lib_dir, \"PyWin32.chm\")\n        if os.path.isfile(chm_file):\n            # This isn't recursive, so if 'Help' doesn't exist, we croak\n            SetPyKeyVal(\"Help\", None, None)\n            SetPyKeyVal(\"Help\\\\Pythonwin Reference\", None, chm_file)",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterPythonwin",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterPythonwin(register=True, lib_dir=None):\n    \"\"\"Add (or remove) Pythonwin to context menu for python scripts.\n    ??? Should probably also add Edit command for pys files also.\n    Also need to remove these keys on uninstall, but there's no function\n        like file_created to add registry entries to uninstall log ???\n    \"\"\"\n    import os\n    if lib_dir is None:\n        lib_dir = sysconfig.get_paths()[\"platlib\"]\n    classes_root = get_root_hkey()",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "get_shortcuts_folder",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def get_shortcuts_folder():\n    if get_root_hkey() == winreg.HKEY_LOCAL_MACHINE:\n        try:\n            fldr = get_special_folder_path(\"CSIDL_COMMON_PROGRAMS\")\n        except OSError:\n            # No CSIDL_COMMON_PROGRAMS on this platform\n            fldr = get_special_folder_path(\"CSIDL_PROGRAMS\")\n    else:\n        # non-admin install - always goes in this user's start menu.\n        fldr = get_special_folder_path(\"CSIDL_PROGRAMS\")",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "get_system_dir",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def get_system_dir():\n    import win32api  # we assume this exists.\n    try:\n        import pythoncom\n        import win32process\n        from win32com.shell import shell, shellcon\n        try:\n            if win32process.IsWow64Process():\n                return shell.SHGetSpecialFolderPath(0, shellcon.CSIDL_SYSTEMX86)\n            return shell.SHGetSpecialFolderPath(0, shellcon.CSIDL_SYSTEM)",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "fixup_dbi",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def fixup_dbi():\n    # We used to have a dbi.pyd with our .pyd files, but now have a .py file.\n    # If the user didn't uninstall, they will find the .pyd which will cause\n    # problems - so handle that.\n    import win32api\n    import win32con\n    pyd_name = os.path.join(os.path.dirname(win32api.__file__), \"dbi.pyd\")\n    pyd_d_name = os.path.join(os.path.dirname(win32api.__file__), \"dbi_d.pyd\")\n    py_name = os.path.join(os.path.dirname(win32con.__file__), \"dbi.py\")\n    for this_pyd in (pyd_name, pyd_d_name):",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "install",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def install(lib_dir):\n    import traceback\n    # The .pth file is now installed as a regular file.\n    # Create the .pth file in the site-packages dir, and use only relative paths\n    # We used to write a .pth directly to sys.prefix - clobber it.\n    if os.path.isfile(os.path.join(sys.prefix, \"pywin32.pth\")):\n        os.unlink(os.path.join(sys.prefix, \"pywin32.pth\"))\n    # The .pth may be new and therefore not loaded in this session.\n    # Setup the paths just in case.\n    for name in \"win32 win32\\\\lib Pythonwin\".split():",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "uninstall",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def uninstall(lib_dir):\n    # First ensure our system modules are loaded from pywin32_system, so\n    # we can remove the ones we copied...\n    LoadSystemModule(lib_dir, \"pywintypes\")\n    LoadSystemModule(lib_dir, \"pythoncom\")\n    try:\n        RegisterCOMObjects(False)\n    except Exception as why:\n        print(f\"Failed to unregister COM objects: {why}\")\n    try:",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "verify_destination",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def verify_destination(location):\n    if not os.path.isdir(location):\n        raise argparse.ArgumentTypeError(f'Path \"{location}\" does not exist!')\n    return location\ndef main():\n    parser = argparse.ArgumentParser(\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        description=\"\"\"A post-install script for the pywin32 extensions.\n    * Typical usage:\n    > python pywin32_postinstall.py -install",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        description=\"\"\"A post-install script for the pywin32 extensions.\n    * Typical usage:\n    > python pywin32_postinstall.py -install\n    If you installed pywin32 via a .exe installer, this should be run\n    automatically after installation, but if it fails you can run it again.\n    If you installed pywin32 via PIP, you almost certainly need to run this to\n    setup the environment correctly.",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "tee_f",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "tee_f = open(os.path.join(tempfile.gettempdir(), \"pywin32_postinstall.log\"), \"w\")\nclass Tee:\n    def __init__(self, file):\n        self.f = file\n    def write(self, what):\n        if self.f is not None:\n            try:\n                self.f.write(what.replace(\"\\n\", \"\\r\\n\"))\n            except OSError:\n                pass",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "sys.stderr",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "sys.stderr = Tee(sys.stderr)\nsys.stdout = Tee(sys.stdout)\ncom_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "sys.stdout",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "sys.stdout = Tee(sys.stdout)\ncom_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'\nsilent = 0",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "com_modules",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "com_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'\nsilent = 0\n# Verbosity of output messages.",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "silent",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "silent = 0\n# Verbosity of output messages.\nverbose = 1\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to PythonXX\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "verbose",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "verbose = 1\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to PythonXX\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created  # type: ignore[used-before-def]\n    # 3.10 stopped supporting bdist_wininst, but we can still build them with 3.9.",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "root_key_name",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_postinstall",
+        "description": "env.Scripts.pywin32_postinstall",
+        "peekOfCode": "root_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to PythonXX\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created  # type: ignore[used-before-def]\n    # 3.10 stopped supporting bdist_wininst, but we can still build them with 3.9.\n    # This can be kept until Python 3.9 or exe installers support is dropped.",
+        "detail": "env.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "run_test",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_testall",
+        "description": "env.Scripts.pywin32_testall",
+        "peekOfCode": "def run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()\n    result = subprocess.run(cmd, check=False, cwd=dirname)\n    print(f\"*** Test script '{script}' exited with {result.returncode}\")\n    sys.stdout.flush()\n    if result.returncode:",
+        "detail": "env.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "find_and_run",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_testall",
+        "description": "env.Scripts.pywin32_testall",
+        "peekOfCode": "def find_and_run(possible_locations, extras):\n    for maybe in possible_locations:\n        if os.path.isfile(maybe):\n            run_test(maybe, extras)\n            break\n    else:\n        raise RuntimeError(\n            \"Failed to locate a test script in one of %s\" % possible_locations\n        )\ndef main():",
+        "detail": "env.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "env.Scripts.pywin32_testall",
+        "description": "env.Scripts.pywin32_testall",
+        "peekOfCode": "def main():\n    import argparse\n    code_directories = [this_dir] + site_packages\n    parser = argparse.ArgumentParser(\n        description=\"A script to trigger tests in all subprojects of PyWin32.\"\n    )\n    parser.add_argument(\n        \"-no-user-interaction\",\n        default=False,\n        action=\"store_true\",",
+        "detail": "env.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "this_dir",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_testall",
+        "description": "env.Scripts.pywin32_testall",
+        "peekOfCode": "this_dir = os.path.dirname(__file__)\nsite_packages = [\n    site.getusersitepackages(),\n] + site.getsitepackages()\nfailures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)",
+        "detail": "env.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "site_packages",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_testall",
+        "description": "env.Scripts.pywin32_testall",
+        "peekOfCode": "site_packages = [\n    site.getusersitepackages(),\n] + site.getsitepackages()\nfailures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.",
+        "detail": "env.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "failures",
+        "kind": 5,
+        "importPath": "env.Scripts.pywin32_testall",
+        "description": "env.Scripts.pywin32_testall",
+        "peekOfCode": "failures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()",
+        "detail": "env.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "Axios",
+        "kind": 6,
+        "importPath": "src.common.axios",
+        "description": "src.common.axios",
+        "peekOfCode": "class Axios(BaseAxios):\n    def __init__(self, base_url=None, headers=None):\n        self.base_url = base_url\n        self.headers = headers or {}\n        super().__init__(\n            base_url=URL_API\n        )",
+        "detail": "src.common.axios",
+        "documentation": {}
+    },
+    {
+        "label": "BaseAxios",
+        "kind": 6,
+        "importPath": "src.common.base_axios",
+        "description": "src.common.base_axios",
+        "peekOfCode": "class BaseAxios:\n    def __init__(self, base_url=None, headers=None):\n        self.base_url = base_url\n        self.headers = headers or {}\n    def get(self, endpoint, params=None, headers=None):\n        url = self._build_url(endpoint)\n        response = requests.get(url, params=params, headers={**self.headers, **(headers or {})})\n        return self._handle_response(response)\n    def post(self, endpoint, data=None, json=None, headers=None):\n        url = self._build_url(endpoint)",
+        "detail": "src.common.base_axios",
+        "documentation": {}
+    },
+    {
+        "label": "nlp",
+        "kind": 5,
+        "importPath": "src.common.base_spacy",
+        "description": "src.common.base_spacy",
+        "peekOfCode": "nlp = spacy.load(\"es_core_news_sm\")\nmatcher = Matcher(nlp.vocab)",
+        "detail": "src.common.base_spacy",
+        "documentation": {}
+    },
+    {
+        "label": "matcher",
+        "kind": 5,
+        "importPath": "src.common.base_spacy",
+        "description": "src.common.base_spacy",
+        "peekOfCode": "matcher = Matcher(nlp.vocab)",
+        "detail": "src.common.base_spacy",
+        "documentation": {}
+    },
+    {
+        "label": "format_message",
+        "kind": 2,
+        "importPath": "src.common.utils",
+        "description": "src.common.utils",
+        "peekOfCode": "def format_message(text):\n    return f\"{text}\"",
+        "detail": "src.common.utils",
+        "documentation": {}
+    },
+    {
+        "label": "bot_step",
+        "kind": 5,
+        "importPath": "src.config.config",
+        "description": "src.config.config",
+        "peekOfCode": "bot_step = 1\n# python -m spacy download es_core_news_sm",
+        "detail": "src.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_categories_action",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.action.category.get_category_action",
+        "description": "src.feature.chatbot.action.category.get_category_action",
+        "peekOfCode": "def get_categories_action() -> List[CategoryModel]:\n    records = []\n    try: \n        response = get_categories_api()\n        for _ in response[\"items\"]:\n            record = CategoryModel(\n                id=_[\"id\"],\n                name=_[\"nombre\"],\n                description=_[\"descripcion\"],\n                activo=_[\"activo\"]    ",
+        "detail": "src.feature.chatbot.action.category.get_category_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_category_action",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.action.category.get_category_action",
+        "description": "src.feature.chatbot.action.category.get_category_action",
+        "peekOfCode": "def get_category_action(name: str) -> Optional[CategoryModel]:\n    try:\n        response = get_category_api()\n        # Extraer los nombres de especialidades en minúsculas\n        specialty_names = [item[\"nombre\"].strip().lower() for item in response[\"items\"]]\n        # Buscar la coincidencia más cercana usando difflib\n        closest_match = get_close_matches(name, specialty_names, n=1, cutoff=0.7)\n        if closest_match:\n            # Buscar el registro correspondiente a la coincidencia más cercana\n            for _ in response[\"items\"]:",
+        "detail": "src.feature.chatbot.action.category.get_category_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_services_action",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.action.service.get_services_action",
+        "description": "src.feature.chatbot.action.service.get_services_action",
+        "peekOfCode": "def get_services_action() -> List[ServiceModel]:\n    records = []\n    try:\n        response = get_services_api()\n        for _ in response[\"items\"]:\n            record = ServiceModel(\n                id=_[\"id\"],\n                category=_[\"categoria\"],\n                name=_[\"nombre\"],\n                description=_[\"descripcion\"],",
+        "detail": "src.feature.chatbot.action.service.get_services_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_service_action",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.action.service.get_services_action",
+        "description": "src.feature.chatbot.action.service.get_services_action",
+        "peekOfCode": "def get_service_action(id: str) -> Optional[List[Dict[str, str]]]:\n    try:\n        response = get_service_api()\n        services = []\n        # Buscar todos los registros que coinciden con la categoría\n        for item in response[\"items\"]:\n            if item[\"categoria\"] == id:\n                services.append({\n                    \"name\": item[\"nombre\"],\n                    \"description\": item[\"descripcion\"],",
+        "detail": "src.feature.chatbot.action.service.get_services_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialties_action",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.action.specialty.get_specialties_action",
+        "description": "src.feature.chatbot.action.specialty.get_specialties_action",
+        "peekOfCode": "def get_specialties_action() -> List[SpecialtyModel]:\n    records = []\n    try:\n        response = get_specialties_api()\n        for _ in response[\"items\"]:\n            record = SpecialtyModel(\n                id=_[\"id\"],\n                name=_[\"nombre\"],\n                description=_[\"descripcion\"],    \n            )",
+        "detail": "src.feature.chatbot.action.specialty.get_specialties_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialty_action",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.action.specialty.get_specialties_action",
+        "description": "src.feature.chatbot.action.specialty.get_specialties_action",
+        "peekOfCode": "def get_specialty_action(name: str) -> Optional[SpecialtyModel]:\n    try:\n        response = get_specialties_api()\n        # Extraer los nombres de especialidades en minúsculas\n        specialty_names = [item[\"nombre\"].strip().lower() for item in response[\"items\"]]\n        # Buscar la coincidencia más cercana usando difflib\n        closest_match = get_close_matches(name, specialty_names, n=1, cutoff=0.7)\n        if closest_match:\n            # Buscar el registro correspondiente a la coincidencia más cercana\n            for _ in response[\"items\"]:",
+        "detail": "src.feature.chatbot.action.specialty.get_specialties_action",
+        "documentation": {}
+    },
+    {
+        "label": "get_categories_api",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.api.category_api",
+        "description": "src.feature.chatbot.api.category_api",
+        "peekOfCode": "def get_categories_api():\n    return Axios().get('/collections/categoria/records?perPage=-1&sort=-created')\ndef get_category_api():\n    return Axios().get('/collections/categoria/records?perPage=-1&sort=-created')",
+        "detail": "src.feature.chatbot.api.category_api",
+        "documentation": {}
+    },
+    {
+        "label": "get_category_api",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.api.category_api",
+        "description": "src.feature.chatbot.api.category_api",
+        "peekOfCode": "def get_category_api():\n    return Axios().get('/collections/categoria/records?perPage=-1&sort=-created')",
+        "detail": "src.feature.chatbot.api.category_api",
+        "documentation": {}
+    },
+    {
+        "label": "get_service_api",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.api.service_api",
+        "description": "src.feature.chatbot.api.service_api",
+        "peekOfCode": "def get_service_api():\n    return Axios().get('/collections/servicio/records?perPage=-1&sort=-created')\ndef get_services_api():\n    return Axios().get('/collections/servicio/records?perPage=-1&sort=-created')",
+        "detail": "src.feature.chatbot.api.service_api",
+        "documentation": {}
+    },
+    {
+        "label": "get_services_api",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.api.service_api",
+        "description": "src.feature.chatbot.api.service_api",
+        "peekOfCode": "def get_services_api():\n    return Axios().get('/collections/servicio/records?perPage=-1&sort=-created')",
+        "detail": "src.feature.chatbot.api.service_api",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialty_api",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.api.specialty_api",
+        "description": "src.feature.chatbot.api.specialty_api",
+        "peekOfCode": "def get_specialty_api():\n    return Axios().get('/collections/especialidad/records?perPage=-1&sort=-created')\ndef get_specialties_api():\n    return Axios().get('/collections/especialidad/records?perPage=-1&sort=-created')",
+        "detail": "src.feature.chatbot.api.specialty_api",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialties_api",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.api.specialty_api",
+        "description": "src.feature.chatbot.api.specialty_api",
+        "peekOfCode": "def get_specialties_api():\n    return Axios().get('/collections/especialidad/records?perPage=-1&sort=-created')",
+        "detail": "src.feature.chatbot.api.specialty_api",
+        "documentation": {}
+    },
+    {
+        "label": "chat_window",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.components.chatbot_window",
+        "description": "src.feature.chatbot.components.chatbot_window",
+        "peekOfCode": "def chat_window(messages):\n    for message in messages:\n        if isinstance(message, dict) and message.get(\"sender\") == \"user\":\n            st.markdown(f\"**🧑‍💼 Tú:** {message['text']}\")\n        elif isinstance(message, dict) and message.get(\"sender\") == \"bot\":\n            st.markdown(f\"**🤖 Bot:** {message['text']}\")\n        else:\n            st.write(message)",
+        "detail": "src.feature.chatbot.components.chatbot_window",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryModel",
+        "kind": 6,
+        "importPath": "src.feature.chatbot.models.category_model",
+        "description": "src.feature.chatbot.models.category_model",
+        "peekOfCode": "class CategoryModel(BaseModel):\n    id: str\n    name: str\n    description: str\n    activo: bool",
+        "detail": "src.feature.chatbot.models.category_model",
+        "documentation": {}
+    },
+    {
+        "label": "MessageModel",
+        "kind": 6,
+        "importPath": "src.feature.chatbot.models.message_model",
+        "description": "src.feature.chatbot.models.message_model",
+        "peekOfCode": "class MessageModel(BaseModel):\n    sender: str\n    text: str",
+        "detail": "src.feature.chatbot.models.message_model",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceModel",
+        "kind": 6,
+        "importPath": "src.feature.chatbot.models.service_model",
+        "description": "src.feature.chatbot.models.service_model",
+        "peekOfCode": "class ServiceModel(BaseModel):\n    id: str\n    category: str\n    name: str\n    description: str\n    price: int\n    status: bool",
+        "detail": "src.feature.chatbot.models.service_model",
+        "documentation": {}
+    },
+    {
+        "label": "SpecialtyModel",
+        "kind": 6,
+        "importPath": "src.feature.chatbot.models.specialty_model",
+        "description": "src.feature.chatbot.models.specialty_model",
+        "peekOfCode": "class SpecialtyModel(BaseModel):\n    id: str\n    name: str\n    description: str",
+        "detail": "src.feature.chatbot.models.specialty_model",
+        "documentation": {}
+    },
+    {
+        "label": "classify_categories",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.services.category_service",
+        "description": "src.feature.chatbot.services.category_service",
+        "peekOfCode": "def classify_categories(texto: str):\n    close_match = texto.strip().lower()\n    normalized_name_area_selected = f\"servicios de derecho {close_match}\"\n    print(normalized_name_area_selected)\n    category = get_category_action(normalized_name_area_selected)\n    message_service = classify_servicies(category[\"id\"])[0]\n    if category:\n        return message_service, True\n    else:\n        return \"No se encontró una Categoria coincidente.\", False",
+        "detail": "src.feature.chatbot.services.category_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_welcome_message",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.services.other_service",
+        "description": "src.feature.chatbot.services.other_service",
+        "peekOfCode": "def get_welcome_message():\n    message = \"👋 ¡Bienvenido/a a **Estudio Jurídico Camacho Gomez**! \\n\"\n    message += \"\\n Nos complace que estés aquí. Somos un equipo dedicado a ofrecerte asesoría y soluciones legales a la medida de tus necesidades.\"\n    message += \"\\n Nuestro compromiso es acompañarte y brindarte el apoyo que necesitas en cada paso del proceso legal.\"\n    #message += \"\\n\\n 👨‍⚖️ Estamos aquí para ayudarte en áreas como:\\n\\n\"\n    return message\ndef get_list_options_message():\n    message = (\n        \"Cuéntanos en qué podemos ayudarte, estamos aquí para brindarte apoyo en varias áreas.\\n\\n\"\n        \"Primero, déjanos presentarte nuestras especialidades para que elijas la que mejor se ajuste a tus necesidades:\\n\"",
+        "detail": "src.feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_list_options_message",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.services.other_service",
+        "description": "src.feature.chatbot.services.other_service",
+        "peekOfCode": "def get_list_options_message():\n    message = (\n        \"Cuéntanos en qué podemos ayudarte, estamos aquí para brindarte apoyo en varias áreas.\\n\\n\"\n        \"Primero, déjanos presentarte nuestras especialidades para que elijas la que mejor se ajuste a tus necesidades:\\n\"\n    )\n    return message\ndef get_interest_query_message():\n    message = (\n        \"¿En cuál de estas áreas te gustaría consultar y agendar una cita? \"\n        \"Selecciona la que más se ajuste a lo que necesitas, y te ayudaremos a coordinar tu cita lo antes posible. 😊\"",
+        "detail": "src.feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_interest_query_message",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.services.other_service",
+        "description": "src.feature.chatbot.services.other_service",
+        "peekOfCode": "def get_interest_query_message():\n    message = (\n        \"¿En cuál de estas áreas te gustaría consultar y agendar una cita? \"\n        \"Selecciona la que más se ajuste a lo que necesitas, y te ayudaremos a coordinar tu cita lo antes posible. 😊\"\n    )\n    return message\ndef get_service_details_message(service):\n    message = (\n        f\"⭐ *{service['name']}*\\n\\n\"\n        f\"📄 *Descripción*: {service['description']}\\n\"",
+        "detail": "src.feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_service_details_message",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.services.other_service",
+        "description": "src.feature.chatbot.services.other_service",
+        "peekOfCode": "def get_service_details_message(service):\n    message = (\n        f\"⭐ *{service['name']}*\\n\\n\"\n        f\"📄 *Descripción*: {service['description']}\\n\"\n        f\"💰 *Precio*: ${service['price']}\\n\"\n        f\"📅 *Disponibilidad*: {'Disponible' if service['status'] else 'No disponible'}\\n\\n\"\n        f\"Si te interesa este servicio, ¡avísanos y te ayudaremos a agendar tu cita! 😊\\n\\n\"\n    )\n    return message\ndef get_specialties_message():",
+        "detail": "src.feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_specialties_message",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.services.other_service",
+        "description": "src.feature.chatbot.services.other_service",
+        "peekOfCode": "def get_specialties_message():\n    message = \"\"\n    specialties = get_specialties_action()\n    for index, specialty in enumerate(specialties, start=1):\n        message += f\"{index}. **{specialty.name}** : {specialty.description}\\n\"\n    return message",
+        "detail": "src.feature.chatbot.services.other_service",
+        "documentation": {}
+    },
+    {
+        "label": "MessageService",
+        "kind": 6,
+        "importPath": "src.feature.chatbot.services.response_services",
+        "description": "src.feature.chatbot.services.response_services",
+        "peekOfCode": "class MessageService():\n    def __init__(self,input: str):\n        self.__input = input\n    def create_user_message (self,user_input: str) -> dict:\n        user_message = MessageModel(sender=\"User\", text=user_input)\n        user_message_data = {\"sender\": \"user\", \"text\": user_message.text}\n        return user_message_data\n    def generate_bot_response(self) -> dict:\n        self.get_response_service()\n        bot_response_text = self.__input",
+        "detail": "src.feature.chatbot.services.response_services",
+        "documentation": {}
+    },
+    {
+        "label": "classify_servicies",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.services.services_service",
+        "description": "src.feature.chatbot.services.services_service",
+        "peekOfCode": "def classify_servicies(id: str):\n    services = get_service_action(id)\n    if services:\n        messages = []\n        for service in services:\n            message = get_service_details_message(service)  # Llama uno por uno\n            messages.append(message)\n        return \"\\n\".join(messages), True  # Une todos los mensajes en una sola respuesta\n    else:\n        return \"No se encontró un servicio coincidente.\", False",
+        "detail": "src.feature.chatbot.services.services_service",
+        "documentation": {}
+    },
+    {
+        "label": "classify_specialties",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.services.specialty_service",
+        "description": "src.feature.chatbot.services.specialty_service",
+        "peekOfCode": "def classify_specialties(texto: str) -> Tuple[str, bool]:\n    normalized_text = texto.strip().lower()\n    # Obtener todas las especialidades desde la base de datos\n    specialties = get_specialties_action()  # Devuelve una lista de SpecialtyModel\n    # Crear una lista de nombres de especialidades en minúsculas\n    specialty_names = [specialty.name.lower() for specialty in specialties]\n    # Verificar si el texto contiene el nombre completo de alguna especialidad\n    for specialty_name in specialty_names:\n        if specialty_name in normalized_text:\n            # Devolver la especialidad correspondiente",
+        "detail": "src.feature.chatbot.services.specialty_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_bot_response",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.utils.bot_ultis",
+        "description": "src.feature.chatbot.utils.bot_ultis",
+        "peekOfCode": "def get_bot_response(user_message):\n    # Lógica simple para el chatbot (puede expandirse)\n    response = user_message\n    return format_message(response)",
+        "detail": "src.feature.chatbot.utils.bot_ultis",
+        "documentation": {}
+    },
+    {
+        "label": "handle_user_input",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.view.chatbot_view",
+        "description": "src.feature.chatbot.view.chatbot_view",
+        "peekOfCode": "def handle_user_input():\n    user_input = st.session_state.user_input\n    messageService = MessageService(user_input)\n    if user_input:\n        # Procesar y enviar mensaje usando el servicio\n        with st.spinner(\"El bot está pensando...\"):\n            st.session_state.messages.append(messageService.create_user_message(user_input))\n            st.session_state.messages.append(messageService.generate_bot_response())\n        # Limpiar el campo de entrada\n        st.session_state.user_input = \"\"  # Esto limpia el texto ingresado",
+        "detail": "src.feature.chatbot.view.chatbot_view",
+        "documentation": {}
+    },
+    {
+        "label": "display_chatbot",
+        "kind": 2,
+        "importPath": "src.feature.chatbot.view.chatbot_view",
+        "description": "src.feature.chatbot.view.chatbot_view",
+        "peekOfCode": "def display_chatbot():\n    st.write(get_welcome_message())\n    if \"initialized\" not in st.session_state:\n        with st.spinner(\"Cargando...\"):\n            st.session_state.messages = [\n                get_list_options_message(),\n                get_specialties_message(),\n                get_interest_query_message()\n            ]\n            st.session_state.initialized = True",
+        "detail": "src.feature.chatbot.view.chatbot_view",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def main():\n    st.title(APP_NAME)\n    display_chatbot()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "src.main",
+        "documentation": {}
+    }
+]
