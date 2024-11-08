@@ -7,7 +7,6 @@ from feature.chatbot.action.specialty.get_specialties_action import get_specialt
 
 def classify_specialties(texto: str) -> Tuple[str, bool]:
     normalized_text = texto.strip().lower()
-
     # Obtener todas las especialidades desde la base de datos
     specialties = get_specialties_action()  # Devuelve una lista de SpecialtyModel
 
@@ -77,4 +76,4 @@ def classify_specialties(texto: str) -> Tuple[str, bool]:
             return f"{specialty.name}", True
 
     # Si no se encontró una coincidencia suficientemente cercana, pedir más información
-    return "No pude identificar claramente el área de derecho que mencionas. Por favor, especifica si es Derecho Penal, Derecho Laboral, Derecho Administrativo, Derecho Procesal, etc.", False
+    return normalized_text, False
