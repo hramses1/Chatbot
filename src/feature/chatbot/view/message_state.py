@@ -1,5 +1,7 @@
 # message_state.py
 import streamlit as st
+
+from feature.chatbot.utils.json_utils import clear_json
 from feature.chatbot.services.other_service import (
     get_specialties_message,
     get_list_options_message,
@@ -9,6 +11,7 @@ from feature.chatbot.services.other_service import (
 # Inicializa el historial de mensajes si no existe
 def initialize_messages():
     if 'messages' not in st.session_state:
+        clear_json()
         st.session_state.messages = [
             get_list_options_message(),
             get_specialties_message(),

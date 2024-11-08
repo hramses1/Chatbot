@@ -5,6 +5,8 @@ from feature.chatbot.models.message_model import MessageModel
 from feature.chatbot.view.message_state import initialize_messages, get_messages, add_message 
 from feature.chatbot.view.form_user import activate_form_user,get_form_data_user
 from feature.chatbot.services.services_service import classify_selection_service
+from feature.chatbot.utils.json_utils import save_to_json
+
 class MessageService:
     
     def __init__(self, user_input: str):
@@ -24,10 +26,10 @@ class MessageService:
         if is_specialty_valid:
             category, is_category_valid = classify_categories(specialty)
             if is_category_valid:
+                save_to_json(specialty)
                 responses.append({"sender": "bot", "text": category})
-                print(classify_selection_service(specialty))
+                print(classify_selection_service())
                 ##activate_form_user()
         else:
-            print(classify_selection_service(specialty))
-
+            print(classify_selection_service())
         return responses

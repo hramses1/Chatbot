@@ -4,9 +4,11 @@ from feature.chatbot.services.response_services import MessageService
 from feature.chatbot.services.other_service import get_welcome_message
 from feature.chatbot.view.message_state import initialize_messages, get_messages, add_message
 from feature.chatbot.view.form_user import show_form_user
+from feature.chatbot.utils.json_utils import clear_json
 
 
 def display_chatbot():
+    
     # Inicializar 'show_form' en False si no está definido
     if 'show_form_user' not in st.session_state:
         st.session_state['show_form_user'] = False
