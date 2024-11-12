@@ -14,7 +14,7 @@ def display_chatbot():
 
     if 'welcome_shown' not in st.session_state:
         st.session_state['welcome_shown'] = True
-        st.write(get_welcome_message())
+        st.markdown(f"### {get_welcome_message()}")
 
     # Contenedor dinámico para actualizar el chat en tiempo real
     chat_container = st.empty()
@@ -23,36 +23,39 @@ def display_chatbot():
         """Renderiza la ventana de chat con desplazamiento automático."""
         with chat_container.container():
             chat_window(get_messages())
-            # Forzar el scroll al final de la página para mostrar el último mensaje
-            st.write("<script>window.scrollTo(0, document.body.scrollHeight);</script>", unsafe_allow_html=True)
-
-    render_chat()
 
     def handle_user_input():
         """Procesa la entrada del usuario y genera la respuesta del bot."""
         user_input = st.session_state.user_input
         if user_input:
-            message_service = MessageService(user_input)
+            # Crear un nuevo mensaje del usuario
             user_message = {"sender": "user", "text": user_input}
-
             add_message(user_message)
             render_chat()  # Mostrar mensaje inmediatamente
 
-            with st.spinner("El bot está pensando..."):
-                bot_responses = message_service.generate_multiple_responses()
-                for response in bot_responses:
-                    bot_message = {"sender": "bot", "text": response}
-                    add_message(bot_message)
-                render_chat()  # Actualizar el chat después de la respuesta
+            # Crear una instancia de MessageService y obtener la respuesta del bot
+            message_service = MessageService(user_input)
+            bot_response = message_service.generate_multiple_responses()
 
-    # Mostrar el formulario de entrada de usuario
+            # Agregar respuestas del bot al historial
+            for response in bot_response["responses"]:
+                bot_message = {"sender": "bot", "text": response}
+                add_message(bot_message)
+            
+            # Mostrar el formulario si se debe activar
+            if bot_response["activate_form"]:
+                st.session_state['show_form_user'] = True
+            
+            render_chat()  # Actualizar el chat después de la respuesta
+
+    render_chat()  # Renderizar el chat al cargar la página
+
+    # Mostrar el formulario de entrada de usuario o el formulario de contacto
     if st.session_state.get('show_form_user', False):
         show_form_user()
     else:
         with st.form(key='user_input_form', clear_on_submit=True):
             st.text_input("Tu:", key='user_input', placeholder="Escribe un mensaje...")
-            submitted = st.form_submit_button("Enviar")
-            if submitted:
+            if st.form_submit_button("Enviar"):
                 handle_user_input()
                 render_chat()
-
