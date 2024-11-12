@@ -1,4 +1,4 @@
-APP_NAME="Estudio Juridico Camacho Gomez"
+APP_NAME="Chatbot ABY"
 URL_API="https://estudio-juridico-camacho-gomez.pockethost.io/api"
 
 global bot_step

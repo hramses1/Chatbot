@@ -22,21 +22,22 @@ def get_specialties_action() -> List[SpecialtyModel]:
     finally:    
         return records
 
-def get_specialty_action(name: str) -> Optional[SpecialtyModel]:
+def get_specialty_action(id: str) -> Optional[SpecialtyModel]:
     try:
         response = get_specialties_api()
 
         # Extraer los nombres de especialidades en minúsculas
-        specialty_names = [item["nombre"].strip().lower() for item in response["items"]]
+        specialty_names = [item["id"].strip().lower() for item in response["items"]]
 
         # Buscar la coincidencia más cercana usando difflib
-        closest_match = get_close_matches(name, specialty_names, n=1, cutoff=0.7)
+        closest_match = get_close_matches(id, specialty_names, n=1, cutoff=0.7)
         
         if closest_match:
             # Buscar el registro correspondiente a la coincidencia más cercana
             for _ in response["items"]:
-                if _["nombre"].strip().lower() == closest_match[0]:
+                if _["id"].strip().lower() == closest_match[0]:
                     return {
+                        "id": _["id"],
                         "name": _["nombre"],
                         "description": _["descripcion"]
                     }

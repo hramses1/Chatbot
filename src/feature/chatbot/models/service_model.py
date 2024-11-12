@@ -7,3 +7,4 @@ class ServiceModel(BaseModel):
     description: str
     price: int
     status: bool
+    reference_user_id : str

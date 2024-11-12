@@ -3,7 +3,8 @@ import re
 import json
 from typing import Tuple
 from difflib import get_close_matches
-from feature.chatbot.action.specialty.get_specialties_action import get_specialty_action, get_specialties_action
+from feature.chatbot.action.specialty.get_specialties_action import get_specialties_action
+from feature.chatbot.utils.json_utils import clear_json
 
 def classify_specialties(texto: str) -> Tuple[str, bool]:
     normalized_text = texto.strip().lower()
@@ -19,7 +20,9 @@ def classify_specialties(texto: str) -> Tuple[str, bool]:
             # Devolver la especialidad correspondiente
             specialty = next((s for s in specialties if s.name.lower() == specialty_name), None)
             if specialty:
-                return f"{specialty.name}", True
+                print('Primero')
+                clear_json()
+                return f"{specialty.id}", True
 
     # Construir la ruta al archivo stopwords.json en utils
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -62,18 +65,11 @@ def classify_specialties(texto: str) -> Tuple[str, bool]:
             specialty_name = best_specialties[0]
             specialty = next((s for s in specialties if s.name.lower() == specialty_name), None)
             if specialty:
-                return f"{specialty.name}", True
+                print('Segundo')
+                clear_json()
+                return f"{specialty.id}", True
         else:
             areas_list = ', '.join([s.capitalize() for s in best_specialties])
             return f"He encontrado varias áreas: {areas_list}. ¿Cuál te interesa?", False
-
-    # Si no se encontraron coincidencias, usar coincidencia difusa en los nombres de especialidades
-    close_matches = get_close_matches(' '.join(words), specialty_names, n=1, cutoff=0.5)
-    if close_matches:
-        match_name = close_matches[0]
-        specialty = next((s for s in specialties if s.name.lower() == match_name), None)
-        if specialty:
-            return f"{specialty.name}", True
-
-    # Si no se encontró una coincidencia suficientemente cercana, pedir más información
+        
     return normalized_text, False

@@ -13,7 +13,8 @@ def get_services_action() -> List[ServiceModel]:
                 name=_["nombre"],
                 description=_["descripcion"],
                 price=_["precio"],
-                status=_["activo"]    
+                status=_["activo"],
+                reference_user_id=_["usuario_referencia_id"] 
             )
 
             records.append(record)
@@ -34,7 +35,8 @@ def get_service_action(id: str) -> Optional[List[Dict[str, str]]]:
                     "name": item["nombre"],
                     "description": item["descripcion"],
                     "price": item["precio"],
-                    "status": item["activo"]
+                    "status": item["activo"],
+                    "reference_user_id": item["usuario_referencia_id"]
                 })
 
         # Retorna la lista de servicios encontrados o None si está vacía

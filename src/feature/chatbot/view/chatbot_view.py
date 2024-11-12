@@ -2,51 +2,57 @@ import streamlit as st
 from feature.chatbot.components.chatbot_window import chat_window
 from feature.chatbot.services.response_services import MessageService
 from feature.chatbot.services.other_service import get_welcome_message
-from feature.chatbot.view.message_state import initialize_messages, get_messages, add_message
+from feature.chatbot.view.message_state import get_messages, add_message
 from feature.chatbot.view.form_user import show_form_user
-from feature.chatbot.utils.json_utils import clear_json
-
 
 def display_chatbot():
-    
-    # Inicializar 'show_form' en False si no está definido
+    """Función principal para mostrar el chatbot."""
+
+    # Inicializar estados si no están definidos
     if 'show_form_user' not in st.session_state:
         st.session_state['show_form_user'] = False
 
-    # Inicializar mensajes en el estado de sesión
-    initialize_messages()
+    if 'welcome_shown' not in st.session_state:
+        st.session_state['welcome_shown'] = True
+        st.write(get_welcome_message())
 
-    # Mostrar el mensaje de bienvenida
-    st.write(get_welcome_message())
+    # Contenedor dinámico para actualizar el chat en tiempo real
+    chat_container = st.empty()
 
-    # Mostrar historial de mensajes
-    chat_window(get_messages())
+    def render_chat():
+        """Renderiza la ventana de chat con desplazamiento automático."""
+        with chat_container.container():
+            chat_window(get_messages())
+            # Forzar el scroll al final de la página para mostrar el último mensaje
+            st.write("<script>window.scrollTo(0, document.body.scrollHeight);</script>", unsafe_allow_html=True)
 
-    # Definir la función handle_user_input antes de usarla
+    render_chat()
+
     def handle_user_input():
+        """Procesa la entrada del usuario y genera la respuesta del bot."""
         user_input = st.session_state.user_input
         if user_input:
             message_service = MessageService(user_input)
-            # Agregar mensaje del usuario al historial
-            add_message(message_service.create_user_message())
-            # Obtener y agregar múltiples respuestas del bot
+            user_message = {"sender": "user", "text": user_input}
+
+            add_message(user_message)
+            render_chat()  # Mostrar mensaje inmediatamente
+
             with st.spinner("El bot está pensando..."):
                 bot_responses = message_service.generate_multiple_responses()
                 for response in bot_responses:
-                    add_message(response)
-            # Limpiar el campo de entrada
-            st.session_state.user_input = ''
+                    bot_message = {"sender": "bot", "text": response}
+                    add_message(bot_message)
+                render_chat()  # Actualizar el chat después de la respuesta
 
-    # Controlar si mostrar el formulario o el campo de entrada
+    # Mostrar el formulario de entrada de usuario
     if st.session_state.get('show_form_user', False):
-        # Mostrar el formulario
         show_form_user()
-        
     else:
-        # Campo de entrada con callback
-        st.text_input(
-            "Tu:",
-            key='user_input',
-            placeholder="Escribe un mensaje...",
-            on_change=handle_user_input
-        )
+        with st.form(key='user_input_form', clear_on_submit=True):
+            st.text_input("Tu:", key='user_input', placeholder="Escribe un mensaje...")
+            submitted = st.form_submit_button("Enviar")
+            if submitted:
+                handle_user_input()
+                render_chat()
+
