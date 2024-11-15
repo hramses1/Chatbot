@@ -2,25 +2,19 @@ from feature.chatbot.action.specialty.get_specialties_action import get_specialt
 import streamlit as st
 
 def get_welcome_message():
-    """Mensaje de bienvenida."""
+    """Devuelve el mensaje de bienvenida como string."""
     return (
-        "👋 ¡Bienvenido/a al **Estudio Jurídico Camacho Gomez**! \n"
-        "Somos un equipo dedicado a ofrecer soluciones legales a tu medida. "
-        "Cuenta con nosotros para guiarte en cada paso del proceso legal."
-    )
-
-def get_list_options_message():
-    """Mensaje para presentar opciones."""
-    return (
-        "Cuéntanos en qué podemos ayudarte. Aquí están nuestras especialidades, "
-        "elige la que mejor se ajuste a tus necesidades:"
+        "👋 **¡Bienvenido/a al Estudio Jurídico!**\n"
+        "🔹 Estamos aquí para ofrecerte soluciones legales personalizadas. "
+        "Déjanos acompañarte en cada paso de tu proceso legal. "
+        "Tu confianza es nuestra prioridad."
     )
 
 def get_interest_query_message():
-    """Consulta sobre el área de interés del usuario."""
+    """Devuelve el mensaje de consulta sobre el área de interés como string."""
     return (
-        "¿En qué área te gustaría recibir asesoría o agendar una cita? "
-        "Selecciona la opción que se ajuste a tu necesidad y coordinaremos una cita. 😊"
+        "🔍 **¿En qué área necesitas asesoría o quieres agendar una cita?**\n"
+        "Selecciona la opción adecuada y organizaremos tu cita a la brevedad. 😊"
     )
 
 def get_service_details_message(service, idx):
@@ -35,10 +29,38 @@ def get_service_details_message(service, idx):
         st.markdown("Si te interesa, **¡contáctanos para agendar tu cita!** 😊")
         st.session_state[f"expander_{idx}"] = not st.session_state[f"expander_{idx}"]
 
+
 def get_specialties_message():
-    """Lista las especialidades disponibles."""
+    """Devuelve un mensaje con las especialidades disponibles como string."""
     specialties = get_specialties_action()
-    return "\n".join(
-        [f"{index}. **{specialty.name}**: {specialty.description}" 
-         for index, specialty in enumerate(specialties, start=1)]
-    )
+
+    if not specialties:
+        return "No hay especialidades disponibles en este momento."
+
+    # Crear un mensaje más visual usando un formato de lista
+    specialties_message = "**🌟 Áreas de Especialidad:**\n"
+    for index, specialty in enumerate(specialties, start=1):
+        specialties_message += f"- **{index}. {specialty.name}**: {specialty.description}\n"
+    
+    return specialties_message
+# Mensaje para seleccionar especialidades
+SELECT_SPECIALTY_MESSAGE = (
+    "🔍 Cuéntanos en qué podemos ayudarte. Selecciona una de nuestras especialidades a continuación:"
+)
+
+# Mensaje para consulta sobre servicios
+ASK_FOR_SERVICE_MESSAGE = (
+    "🔍 ¿En qué área necesitas asesoría? Elige el servicio que mejor se ajuste a tus necesidades."
+)
+
+# Mensaje de confirmación de cita
+APPOINTMENT_CONFIRMED_MESSAGE = (
+    "🎉 ¡Tu cita ha sido agendada exitosamente! Nos pondremos en contacto contigo pronto."
+)
+
+# Nuevo mensaje: Confirmación del servicio y abogado seleccionado
+SERVICE_SELECTION_MESSAGE = (
+    "👏 **Excelente elección** 🎉. Has seleccionado al abogado **{nombre_usuario}** "
+    "para el servicio **{nombre_servicio}**. 💼\n"
+    "\n🎉 Opción seleccionada correctamente. ¿Te gustaría confirmar esta cita? (responde 'sí'✅ o 'no'❌)"
+)

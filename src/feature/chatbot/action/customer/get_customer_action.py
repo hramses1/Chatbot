@@ -1,3 +1,4 @@
+import json
 from typing import List, Optional, Dict
 from feature.chatbot.api.customer_api import get_customers_api, create_customer_api
 from feature.chatbot.models.customer_model import CustomerModel
@@ -67,18 +68,8 @@ def create_customer_action(data: CustomerModel) -> Optional[CustomerModel]:
         response = create_customer_api(payload)
 
         # Validar la respuesta de la API
-        if response and response.get("success"):
-            return CustomerModel(
-                id=response.get("id"),
-                nombre=response.get("nombre"),
-                identificacion=response.get("identificacion"),
-                correo=response.get("correo"),
-                correo_verificado=response.get("correo_verificado"),
-                activo=response.get("activo"),
-                usuario_crea_id=response.get("usuario_crea_id"),
-                usuario_actualiza_id=response.get("usuario_actualiza_id"),
-                borrado=response.get("borrado")
-            )
+        if response :
+            return response
         else:
             print("Error al crear el cliente.")
             return None

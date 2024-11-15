@@ -28,25 +28,27 @@ def display_chatbot():
         """Procesa la entrada del usuario y genera la respuesta del bot."""
         user_input = st.session_state.user_input
         if user_input:
-            # Crear un nuevo mensaje del usuario
             user_message = {"sender": "user", "text": user_input}
             add_message(user_message)
-            render_chat()  # Mostrar mensaje inmediatamente
+            render_chat()
 
-            # Crear una instancia de MessageService y obtener la respuesta del bot
+            # Generar respuestas del bot
             message_service = MessageService(user_input)
             bot_response = message_service.generate_multiple_responses()
 
-            # Agregar respuestas del bot al historial
-            for response in bot_response["responses"]:
-                bot_message = {"sender": "bot", "text": response}
-                add_message(bot_message)
+            # Asegurarse de que bot_response sea un diccionario antes de acceder
+            if isinstance(bot_response, dict) and "responses" in bot_response:
+                for response in bot_response["responses"]:
+                    if response:
+                        bot_message = {"sender": "bot", "text": response}
+                        add_message(bot_message)
             
-            # Mostrar el formulario si se debe activar
-            if bot_response["activate_form"]:
+            # Verificar si se debe activar el formulario
+            if bot_response.get("activate_form", False):
                 st.session_state['show_form_user'] = True
-            
-            render_chat()  # Actualizar el chat después de la respuesta
+                st.rerun() # Forzar la recarga para que el formulario aparezca inmediatamente
+
+            render_chat()
 
     render_chat()  # Renderizar el chat al cargar la página
 

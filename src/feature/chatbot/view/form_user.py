@@ -1,6 +1,8 @@
 import streamlit as st
+from feature.chatbot.services.form_data_service import FormDataService
 
 def show_form_user():
+    """Formulario para recopilar información del usuario."""
     with st.form("Peticion de información"):
         nombre = st.text_input("Nombre")
         email = st.text_input("Email")
@@ -9,16 +11,23 @@ def show_form_user():
         enviar = st.form_submit_button("Enviar")
         if enviar:
             if nombre and email and identificacion:
-                # Guardar los datos en st.session_state
-                st.session_state['nombre'] = nombre
-                st.session_state['email'] = email
-                st.session_state['id'] = identificacion
-                # Restablecer la bandera para que el formulario no se muestre nuevamente
+                # Crear un diccionario con los datos del formulario
+                form_data = {
+                    'nombre': nombre,
+                    'email': email,
+                    'id': identificacion
+                }
+                
+                # Ejecutar el servicio para procesar los datos
+                form_service = FormDataService(form_data)
+                form_service.process_form_data()
+
+                # Restablecer el estado para evitar que el formulario se muestre de nuevo
                 st.session_state['show_form_user'] = False
-                # Forzar reejecución del script
                 st.rerun()
             else:
                 st.error("Por favor, completa todos los campos.")
+
 
 def get_form_data_user():
     return {
