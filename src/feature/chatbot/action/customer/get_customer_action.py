@@ -1,10 +1,9 @@
-import json
-from typing import List, Optional, Dict
-from feature.chatbot.api.customer_api import get_customers_api, create_customer_api
+from typing import  Optional
+from feature.chatbot.api.customer_api import get_customer_api, create_customer_api
 from feature.chatbot.models.customer_model import CustomerModel
 
 
-def get_customer_action(identificacion: str) -> Optional[List[CustomerModel]]:
+def get_customer_action(correo: str):
     """
     Obtiene información del cliente basado en la identificación proporcionada.
 
@@ -15,30 +14,8 @@ def get_customer_action(identificacion: str) -> Optional[List[CustomerModel]]:
         Optional[List[CustomerModel]]: Lista de clientes que coinciden con la identificación proporcionada, o None si no hay coincidencias.
     """
     try:
-        response = get_customers_api()
-        if not response or "items" not in response:
-            return None
-
-        # Filtrar los clientes que coinciden con la identificación proporcionada
-        customers = [
-            CustomerModel(
-                id=item.get("id"),
-                nombre=item.get("nombre"),
-                identificacion=item.get("identificacion"),
-                correo=item.get("correo"),
-                correo_verificado=item.get("correo_verificado"),
-                activo=item.get("activo"),
-                genero=item.get("genero"),
-                define_horario=item.get("define_horario"),
-                horario=item.get("horario"),
-                usuario_crea_id=item.get("usuario_crea_id"),
-                usuario_actualiza_id=item.get("usuario_actualiza_id"),
-                borrado=item.get("borrado")
-            )
-            for item in response["items"] if item.get("identificacion") == identificacion
-        ]
-
-        return customers if customers else None
+        response = get_customer_api(correo)
+        return response
 
     except Exception as e:
         print(f"Error al obtener el cliente: {e}")

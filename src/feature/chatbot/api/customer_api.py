@@ -1,8 +1,8 @@
 from common.axios import Axios
 import re
 
-def get_customer_api():
-    return Axios().get('/collections/cliente/records?perPage=-1&sort=-created')
+def get_customer_api(email: str):
+    return Axios().get(f'/collections/cliente/records?filter=correo={email}')
 
 def get_customers_api():
     return Axios().get('/collections/cliente/records?perPage=-1&sort=-created')

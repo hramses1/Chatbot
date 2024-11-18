@@ -1,4 +1,5 @@
-from feature.chatbot.action.customer.get_customer_action import create_customer_action
+from feature.chatbot.action.customer.get_customer_action import create_customer_action, get_customer_action
+from feature.chatbot.api.appointment_api import AppointmentService
 from feature.chatbot.models.customer_model import CustomerModel
 from feature.chatbot.services.create_event_google_calendar_service import crear_evento_google_calendar
 from feature.chatbot.utils.json_utils import get_all_data_from_json
@@ -46,7 +47,6 @@ def process_form_submission():
         correo_verificado=True,
         activo=True
     )
-
     # Intentar crear el cliente
     try:
         created_customer = create_customer_action(new_customer)
@@ -56,6 +56,28 @@ def process_form_submission():
             print(f"Cliente creado exitosamente: {user_info['nombre']}")
         else:
             print(f"El cliente {user_info['nombre']} ya existe.")
+        
+        
+        get_customer= get_customer_action(user_info["email"])
+        print('user: ',get_customer)
+        
+        # # Ejemplo de uso
+        # appointment_data = {
+        #     "cliente": "1234567890",
+        #     "usuario": "abogado_001",
+        #     "estado": "P",
+        #     "observacion": "Primera consulta",
+        #     "fecha_cita": datetime.now().isoformat()
+        # }
+
+        # detail_data = {
+        #     "servicio": "servicio_001",
+        #     "precio": 100.0
+        # }
+
+        # service = AppointmentService()
+        # service.create_appointment_with_detail(appointment_data, detail_data)
+        
         
         # Crear evento en Google Calendar
         crear_evento_para_cliente(user_info, service_details, fecha_actual)
