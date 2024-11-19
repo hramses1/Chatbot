@@ -1,5 +1,5 @@
 from feature.chatbot.action.customer.get_customer_action import create_customer_action, get_customer_action
-from feature.chatbot.action.appointment.get_appointment_action import AppointmentService
+from feature.chatbot.action.appointment.get_appointment_action import create_appointment_with_detail
 from feature.chatbot.models.customer_model import CustomerModel
 from feature.chatbot.services.create_event_google_calendar_service import crear_evento_google_calendar
 from feature.chatbot.utils.json_utils import get_all_data_from_json
@@ -46,7 +46,7 @@ def crear_o_actualizar_cliente(user_info, service_details):
         appointment_data = {
             "cliente": customer_id,
             "usuario": service_details["id_usuario"],
-            "estado": "En curso",
+            "estado_caso": "En curso",
             "observacion": "Primera consulta",
             "fecha_cita": datetime.now().isoformat()
         }
@@ -55,8 +55,7 @@ def crear_o_actualizar_cliente(user_info, service_details):
             "precio": service_details['precio_servicio']
         }
 
-        service = AppointmentService()
-        service.create_appointment_with_detail(appointment_data, detail_data)
+        create_appointment_with_detail(appointment_data, detail_data)
         print(f"Cita creada para el cliente: {user_info['nombre']}")
     except Exception as e:
         print(f"Error al procesar el cliente {user_info['nombre']}: {e}")

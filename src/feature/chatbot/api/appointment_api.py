@@ -8,7 +8,8 @@ def create_appointment(appointment_data: Dict[str, Any]) -> Optional[Appointment
     """
     Crea una cita en la base de datos mediante la API proporcionada.
     """
-    response = Axios().post("/collections/cita/records", json=appointment_data)
+    axios = Axios()
+    response = axios.post("/collections/cita/records", json=appointment_data)
     if response and "id" in response:
         print("✅ Cita creada exitosamente.")
         return AppointmentModel(**response)
@@ -23,7 +24,8 @@ def create_appointment_detail(
     """
     Crea el detalle de una cita en la base de datos mediante la API proporcionada.
     """
-    response = Axios().post("/collections/detalle_cita/records", json=detail_data)
+    axios = Axios()
+    response = axios.post("/collections/detalle_cita/records", json=detail_data)
     if response and "id" in response:
         print("✅ Detalle de cita creado exitosamente.")
         return AppointmentDetailModel(**response)
