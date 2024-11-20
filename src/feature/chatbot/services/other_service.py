@@ -18,16 +18,26 @@ def get_interest_query_message():
     )
 
 def get_service_details_message(service, idx):
-    """Despliega detalles del servicio seleccionado."""
+    """Despliega detalles del servicio seleccionado con diseño atractivo."""
+    
     if f"expander_{idx}" not in st.session_state:
         st.session_state[f"expander_{idx}"] = False
 
-    with st.expander(f"⭐ **Opcion: {idx+1}** {service.nombre_servicio}", expanded=st.session_state[f"expander_{idx}"]):
-        st.markdown(f"👨‍⚖️ **Abogado**: {service.nombre_usuario}")
-        st.markdown(f"📄 **Descripción**: {service.descripcion_servicio}")
-        st.markdown(f"💰 **Precio**: ${service.precio_servicio}")
-        st.markdown("Si te interesa, **¡contáctanos para agendar tu cita!** 😊")
+    with st.expander(f"⭐ **Opción {idx+1}: {service.nombre_servicio}**", expanded=st.session_state[f"expander_{idx}"]):
+        st.markdown(
+            f"""
+            <div style="padding: 10px; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd;">
+                <p style="font-size: 16px; margin: 5px 0;"><strong>👨‍⚖️ Abogado:</strong> {service.nombre_usuario}</p>
+                <p style="font-size: 16px; margin: 5px 0;"><strong>📄 Descripción:</strong> {service.descripcion_servicio}</p>
+                <p style="font-size: 16px; margin: 5px 0;"><strong>💰 Precio:</strong> ${service.precio_servicio}</p>
+                <p style="font-size: 15px; color: #555;">Si te interesa, <strong>¡contáctanos para agendar tu cita!</strong> 😊</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        # Cambiar estado del expander
         st.session_state[f"expander_{idx}"] = not st.session_state[f"expander_{idx}"]
+
 
 
 def get_specialties_message():

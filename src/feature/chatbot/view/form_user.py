@@ -28,8 +28,8 @@ def show_form_user():
             else:
                 st.error("Por favor, completa todos los campos.")
 
-
 def get_form_data_user():
+    """Recupera los datos del formulario desde session_state."""
     return {
         'nombre': st.session_state.get('nombre', ''),
         'email': st.session_state.get('email', ''),
@@ -37,5 +37,5 @@ def get_form_data_user():
     }
 
 def activate_form_user():
+    """Activa el formulario configurando el estado correspondiente."""
     st.session_state['show_form_user'] = True
-    

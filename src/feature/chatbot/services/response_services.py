@@ -10,7 +10,6 @@ from feature.chatbot.services.other_service import SERVICE_SELECTION_MESSAGE
 import streamlit as st
 import re
 
-
 class MessageService:
     def __init__(self, user_input: str):
         self.user_input = user_input.lower().strip()
@@ -23,26 +22,10 @@ class MessageService:
         """Genera respuestas del bot y devuelve un diccionario."""
         responses = []
 
-        # Verificar si el formulario fue enviado y obtener datos
+        # Manejo del formulario enviado
         if st.session_state.get("form_submitted", False):
-            form_data = get_form_data_user()
-            if self.validate_form_data(form_data):
-                responses.append(
-                    f"🎉 ¡Gracias, {form_data['nombre']}! Hemos recibido tu información correctamente."
-                )
-                responses.append(f"📧 Email: {form_data['email']}")
-                responses.append(f"🆔 Identificación: {form_data['id']}")
-                save_to_json(form_data)
-                st.session_state["form_submitted"] = False
-                st.session_state["show_form_user"] = False
-                return {"responses": responses, "activate_form": False}
-            else:
-                responses.append(
-                    "⚠️ Algunos datos son incorrectos. Asegúrate de que tu nombre solo contenga letras, tu email sea válido y tu identificación solo contenga números."
-                )
-                st.session_state["form_submitted"] = False
-                st.session_state["show_form_user"] = True
-                return {"responses": responses, "activate_form": True}
+            self.process_form_submission(responses)
+            return {"responses": responses, "activate_form": st.session_state["show_form_user"]}
 
         # Clasificación de la entrada del usuario
         if st.session_state.get("awaiting_confirmation", False):
@@ -57,138 +40,98 @@ class MessageService:
             "activate_form": st.session_state.get("show_form_user", False),
         }
 
+    def process_form_submission(self, responses: list):
+        """Procesa el envío del formulario."""
+        form_data = get_form_data_user()
+        if self.validate_form_data(form_data):
+            responses.append(f"🎉 ¡Gracias, {form_data['nombre']}! Hemos recibido tu información correctamente.")
+            responses.extend([
+                f"📧 Email: {form_data['email']}",
+                f"🆔 Identificación: {form_data['id']}",
+            ])
+            save_to_json(form_data)
+            self.reset_states("form_submitted", "show_form_user")
+        else:
+            responses.append(
+                "⚠️ Algunos datos son incorrectos. Asegúrate de que tu nombre solo contenga letras, tu email sea válido y tu identificación solo contenga números."
+            )
+            st.session_state["show_form_user"] = True
+
     def validate_form_data(self, form_data: dict) -> bool:
         """Valida los datos del formulario."""
-        if not form_data:
-            return False
-        if not form_data.get("nombre") or not re.match(
-            r"^[a-zA-Z\s]+$", form_data["nombre"]
-        ):
-            return False
-        if not form_data.get("email") or not re.match(
-            r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", form_data["email"]
-        ):
-            return False
-        if not form_data.get("id") or not form_data["id"].isdigit():
-            return False
-        return True
+        validators = {
+            "nombre": lambda x: bool(re.match(r"^[a-zA-Z\s]+$", x)),
+            "email": lambda x: bool(re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", x)),
+            "id": lambda x: x.isdigit(),
+        }
+        return all(validators[key](form_data.get(key, "")) for key in validators)
 
     def handle_classification(self, responses: list):
         """Clasifica la entrada del usuario en especialidades."""
         specialty, is_specialty_valid = classify_specialties(self.user_input)
-
         if is_specialty_valid:
-            self.handle_specialty(specialty, responses)
+            classify_servicies(specialty)
+            responses.append("🔍 Hemos identificado tu interés en una especialidad.")
+            responses.append("✅ Por favor, selecciona una opción para continuar. Ejemplo: 'Opción 1', 'Opción 2'.")
+            st.session_state["awaiting_option_selection"] = True
         else:
             responses.append(
-                "❌ En este momento no hay especialidad disponible que coincida con tu solicitud. Es posible que hayas escrito algo incorrecto. Por favor, revisa tu petición y vuelve a intentarlo. Ejemplo: 'Derecho Penal'."
+                "❌ No encontramos una especialidad que coincida con tu solicitud. Intenta de nuevo con términos como 'Derecho Penal'."
             )
-    def handle_specialty(self, specialty: str, responses: list):
-        """Maneja la respuesta si se detecta una especialidad válida."""
-        classify_servicies(specialty)
-        save_to_json({"area": specialty})
-        st.session_state["area"] = specialty  # Guardar el área en session_state
-        responses.append("🔍 Hemos identificado tu interés en una especialidad.")
-        responses.append(
-            "✅ Por favor, selecciona una opción para continuar. Ejemplo: 'Opción 1', 'Opción 2'."
-        )
-        st.session_state["awaiting_option_selection"] = True
 
     def handle_option_selection(self, responses: list):
         """Maneja la selección del usuario para las opciones."""
-        # Intentar obtener los valores desde classify_selection_service()
         result, is_result_valid = classify_selection_service()
 
-        # Verificar si el servicio retornado es válido y no está vacío
         if not is_result_valid or not result:
-            responses.append(
-                "⚠️ Lo siento, en este momento no hay servicios disponibles para la especialidad seleccionada."
-            )
+            responses.append(result)
             st.session_state["awaiting_option_selection"] = False
             return
 
-        # Si `result` es un diccionario con información del servicio
         if isinstance(result, dict):
-            confirmation_message = SERVICE_SELECTION_MESSAGE.format(
-                nombre_usuario=result["nombre_usuario"],
-                nombre_servicio=result["nombre_servicio"],
-            )
-            responses.append(confirmation_message)
-            st.session_state["awaiting_confirmation"] = True
-            st.session_state["awaiting_option_selection"] = False
-            return
+            self.prepare_confirmation_message(result, responses)
+        elif isinstance(result, list):
+            self.process_option_list(result, responses)
 
-        # Si `result` es una lista, obtener el número de servicios disponibles
-        if isinstance(result, list):
-            max_options = len(result)
-            selection = result
-        else:
-            responses.append(
-                "⚠️ Error interno: No se pudieron obtener las opciones. Inténtalo de nuevo más tarde."
-            )
-            return
-
-        # Validar la entrada del usuario
+    def process_option_list(self, options: list, responses: list):
+        """Procesa una lista de opciones disponibles."""
+        max_options = len(options)
         match = re.search(r"opci[oó]n\s*(\d+)", self.user_input)
         if match:
             selected_option = int(match.group(1))
-
-            # Verificar si la opción seleccionada está dentro del rango válido
             if 1 <= selected_option <= max_options:
-                selected_service = selection[selected_option - 1]
-                service_details = format_service_details(selected_service)
-
-                if service_details:
-                    st.session_state["awaiting_confirmation"] = True
-                    st.session_state["awaiting_option_selection"] = False
-
-                    # Enviar el mensaje personalizado utilizando SERVICE_SELECTION_MESSAGE
-                    confirmation_message = SERVICE_SELECTION_MESSAGE.format(
-                        nombre_usuario=service_details["nombre_usuario"],
-                        nombre_servicio=service_details["nombre_servicio"],
-                    )
-                    responses.append(confirmation_message)
-                    responses.append(
-                        "🎉 Opción seleccionada correctamente. ¿Te gustaría confirmar esta cita?"
-                    )
-                    return
+                self.prepare_confirmation_message(options[selected_option - 1], responses)
             else:
-                # Si la opción está fuera del rango, volver a mostrar la lista de servicios
                 responses.append(
-                    f"⚠️ La opción {selected_option} no es válida. Por favor, selecciona una opción entre 1 y {max_options}."
+                    f"⚠️ La opción {selected_option} no es válida. Por favor, selecciona entre 1 y {max_options}."
                 )
-                responses.append("🔄 Mostrando nuevamente los servicios disponibles:")
-                data = st.session_state.get("area")
-                if data:
-                    classify_servicies(
-                        data
-                    )  # Volver a mostrar los servicios disponibles
         else:
-            # Si el formato de la entrada es incorrecto, volver a mostrar los servicios
-            responses.append(
-                "⚠️ No entendí tu selección. Por favor, utiliza el formato 'Opción 1', 'Opción 2', etc."
-            )
-            responses.append("🔄 Mostrando nuevamente los servicios disponibles:")
-            data = st.session_state.get("area")
-            if data:
-                classify_servicies(data)
+            responses.append("⚠️ Por favor, selecciona una opción válida como 'Opción 1'.")
+
+    def prepare_confirmation_message(self, service_details: dict, responses: list):
+        """Prepara un mensaje de confirmación para una opción seleccionada."""
+        confirmation_message = SERVICE_SELECTION_MESSAGE.format(
+            nombre_usuario=service_details["nombre_usuario"],
+            nombre_servicio=service_details["nombre_servicio"],
+        )
+        responses.append(confirmation_message)
+        responses.append("🎉 ¿Te gustaría confirmar esta cita? Responde con 'sí' o 'no'.")
+        self.reset_states("awaiting_option_selection")
+        st.session_state["awaiting_confirmation"] = True
 
     def handle_user_confirmation(self, responses: list):
         """Maneja la confirmación del usuario para agendar la cita."""
         if self.user_input in ["sí", "si", "s", "yes"]:
-            responses.append(
-                "🎉 ¡Perfecto! Agenda confirmada. Completa el formulario a continuación."
-            )
+            responses.append("🎉 ¡Perfecto! Agenda confirmada. Completa el formulario a continuación.")
             activate_form_user()
             st.session_state["show_form_user"] = True
-            st.session_state["awaiting_confirmation"] = False
-            st.rerun()
         elif self.user_input in ["no", "n", "not now", "nope"]:
-            responses.append(
-                "👍 Entendido. Si necesitas algo más, aquí estamos para ayudarte."
-            )
-            st.session_state["awaiting_confirmation"] = False
+            responses.append("👍 Entendido. Si necesitas algo más, aquí estamos para ayudarte.")
         else:
-            responses.append(
-                "⚠️ No entendí tu respuesta. Por favor, responde con 'sí' o 'no'."
-            )
+            responses.append("⚠️ No entendí tu respuesta. Por favor, responde con 'sí' o 'no'.")
+        self.reset_states("awaiting_confirmation")
+
+    def reset_states(self, *keys):
+        """Resetea los estados especificados en session_state."""
+        for key in keys:
+            st.session_state[key] = False
