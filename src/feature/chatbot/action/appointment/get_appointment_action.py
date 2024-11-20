@@ -5,7 +5,6 @@ from feature.chatbot.api.appointment_api import (
     create_appointment_detail,
 )
 
-
 def create_appointment_with_detail(
     appointment_data: Dict[str, Any], detail_data: Dict[str, Any]
 ) -> bool:

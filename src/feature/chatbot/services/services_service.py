@@ -90,6 +90,7 @@ def format_service_details(service: ServiceUserViewModel) -> dict:
         "id_servicio": service.id_servicio,
         "nombre_servicio": service.nombre_servicio,
         "nombre_usuario": service.nombre_usuario,
+        'id_usuario': service.id_usuario,
         "correo_usuario": service.correo_usuario,
         "horario_fin": service.horario_fin,
         "horario_usuario": service.horario_usuario,

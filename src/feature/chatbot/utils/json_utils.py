@@ -55,6 +55,8 @@ def get_all_data_from_json(file_path="./src/feature/chatbot/utils/conversation_l
             result["service_details"] = {
                 "id_servicio": entry.get("id_servicio"),
                 "nombre_servicio": entry.get("nombre_servicio"),
+                'precio_servicio': entry.get("precio_servicio"),
+                "id_usuario": entry.get("id_usuario"),
                 "nombre_usuario": entry.get("nombre_usuario"),
                 "correo_usuario": entry.get("correo_usuario"),
                 "horario_usuario": entry.get("horario_usuario"),

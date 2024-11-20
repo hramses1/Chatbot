@@ -10,7 +10,7 @@ def create_appointment(appointment_data: Dict[str, Any]) -> Optional[Appointment
     """
     axios = Axios()
     response = axios.post("/collections/cita/records", json=appointment_data)
-    if response and "id" in response:
+    if response:
         print("✅ Cita creada exitosamente.")
         return AppointmentModel(**response)
     else:
@@ -26,7 +26,7 @@ def create_appointment_detail(
     """
     axios = Axios()
     response = axios.post("/collections/detalle_cita/records", json=detail_data)
-    if response and "id" in response:
+    if response:
         print("✅ Detalle de cita creado exitosamente.")
         return AppointmentDetailModel(**response)
     else:
