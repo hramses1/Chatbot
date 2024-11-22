@@ -40,15 +40,18 @@ def classify_selection_service() -> Tuple[Union[str, dict], bool]:
         len_service = len(services)
         
         # Detectar si el usuario ingresó una opción válida
-        match = re.search(r'opci[oó]n\s*(\d+)', last_message)
-        if not match:
-            return "Por favor, selecciona una opción válida (por ejemplo, 'opción 1').", False
-
-        # Obtener el número de opción seleccionado por el usuario
-        option_number = int(match.group(1))
+        match_option = re.search(r'opci[oó]n\s*(\d+)', last_message)
+        match_number = re.fullmatch(r'\d+', last_message)
+        
+        if match_option:
+            option_number = int(match_option.group(1))  # Captura "opción X"
+        elif match_number:
+            option_number = int(match_number.group(0))  # Captura un número directamente
+        else:
+            return "Por favor, selecciona una opción válida (por ejemplo, 'opción 1' o '1').", False
 
         # Verificar si la opción está dentro del rango de servicios disponibles
-        if option_number < 1 or option_number > len_service:
+        if option_number < 1 or option_number > len_service :
             return f"La opción {option_number} no es válida. Por favor, selecciona una opción entre 1 y {len_service}.", False
 
         # Obtener el servicio seleccionado

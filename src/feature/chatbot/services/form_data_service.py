@@ -1,6 +1,6 @@
 import streamlit as st
 from feature.chatbot.services.customer_service import process_form_submission
-from feature.chatbot.utils.json_utils import save_to_json
+from feature.chatbot.utils.json_utils import get_all_data_from_json, save_to_json
 import time
 
 class FormDataService:
@@ -16,19 +16,30 @@ class FormDataService:
             
             # Guardar los datos en un archivo JSON
             save_to_json(self.data)
+            
             process_form_submission()
-            
-            # Mostrar un mensaje de éxito en la interfaz de usuario
-            st.success(f"Gracias, {self.data['nombre']}. Tus datos han sido recibidos.")
-            
-            # Mostrar mensaje adicional indicando que la cita ha sido agendada
-            st.success("🎉 Tu cita ha sido agendada exitosamente.")
+            time.sleep(2)
+            data = get_all_data_from_json()
+            estimated_time = data.get("appointment_timing")
+            status_appointment = data.get("status_appointment")
 
+            if not status_appointment:
+                st.success(f"Bienvenido de nuevo, {self.data['nombre']}. Tus datos han sido recibidos.")
+            else:
+                st.success(f"Gracias, {self.data['nombre']}. Tus datos han sido recibidos.")
+
+            # Mostrar mensaje adicional indicando que la cita ha sido agendada
+            st.success(f"🎉 Tu cita ha sido agendada exitosamente para: {estimated_time['start_time']} ")
+
+            # Mostrar mensaje adicional para recordar al usuario revisar su correo electrónico
+            st.info("📧 Por favor, revisa tu correo electrónico para aceptar la invitación a la reunión. Si no la encuentras, revisa también tu carpeta de spam o correo no deseado.")
+            
+            st.info("⏱️ En 7 segundos volvera al inicio, Muchas gracias por usar nuestro servicio!.")
             # Configurar un estado para retrasar el reinicio del chat
             st.session_state['appointment_confirmed'] = True
             
             # Esperar unos segundos antes de reiniciar el chat
-            time.sleep(3)
+            time.sleep(7)
             
             # Reiniciar el estado para que el chatbot comience desde el inicio
             self.reset_chat()
