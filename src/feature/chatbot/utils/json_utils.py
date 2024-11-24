@@ -81,3 +81,17 @@ def get_all_data_from_json(file_path="./src/feature/chatbot/utils/conversation_l
             result['status_appointment'] = entry['status_appointment']
 
     return result
+
+
+def load_keywords(file_path: str) -> dict:
+    """Cargar palabras clave desde un archivo JSON."""
+    
+     # Construir la ruta al archivo stopwords.json en utils
+     
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    utils_dir = os.path.join(current_dir, '..', 'utils')
+    stopwords_path = os.path.join(utils_dir, file_path)
+    
+    with open(stopwords_path, 'r', encoding='utf-8') as file:
+        stopwords_list =json.load(file)
+        return stopwords_list

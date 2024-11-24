@@ -4,17 +4,13 @@ import json
 from typing import Tuple
 from feature.chatbot.action.specialty.get_specialties_action import get_specialties_action
 from feature.chatbot.action.view.get_service_user_view_action import get_service_user_by_specialty
-from feature.chatbot.utils.json_utils import clear_json
+from feature.chatbot.utils.json_utils import clear_json, load_keywords
 
 def classify_specialties(texto: str) -> Tuple[str, bool]:
     normalized_text = texto.strip().lower()
     
     # Obtener todas las especialidades desde la base de datos
     specialties = get_specialties_action()  # Devuelve una lista de SpecialtyModel
-
-    # Crear listas de nombres y descripciones de especialidades en minúsculas
-    specialty_names = [specialty.name.lower() for specialty in specialties]
-    specialty_descriptions = [specialty.description.lower() for specialty in specialties]
 
     # Verificar si el texto contiene el nombre completo de alguna especialidad
     for specialty in specialties:
@@ -26,21 +22,14 @@ def classify_specialties(texto: str) -> Tuple[str, bool]:
                 return f"{specialty.id}", True
             else:
                 None
+                
+    keywords = load_keywords("stopwords.json")
 
-    # Construir la ruta al archivo stopwords.json en utils
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    utils_dir = os.path.join(current_dir, '..', 'utils')
-    stopwords_path = os.path.join(utils_dir, 'stopwords.json')
+    # Extraer palabras clave
+    stopwords = keywords.get("stopwords", [])
+    
+    stopwords = set(stopwords)  # Convertir stopwords a conjunto (si no lo es ya)
 
-    # Cargar la lista de stopwords desde el archivo JSON
-    try:
-        with open(stopwords_path, 'r', encoding='utf-8') as f:
-            stopwords_list = json.load(f)
-            stopwords = set(stopwords_list)
-    except Exception as e:
-        return "Error al cargar las palabras vacías. Por favor, inténtalo de nuevo más tarde.", False
-
-    # Tokenizar el texto y eliminar stopwords
     words = set(re.findall(r'\w+', normalized_text)) - stopwords
 
     # Crear un diccionario de palabras clave para cada especialidad (nombre y descripción)
