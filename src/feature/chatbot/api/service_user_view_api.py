@@ -8,3 +8,7 @@ def get_service_user_for_user_api(user: str):
 
 def get_service_user_for_id_specialty_api(id_specialty: str):
     return Axios().get(f"/collections/usuario_servicio_vista/records?filter=(id_especialidad='{id_specialty}')")
+
+
+def get_customer_state_cases_api(email: str):
+    return Axios().get(f"/api/collections/cliente_caso_correo_vista/records?filter=(correo_cliente='{email}')")

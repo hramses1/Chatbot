@@ -6,6 +6,7 @@ def show_form_user():
     with st.form("Peticion de información"):
         nombre = st.text_input("Nombre")
         email = st.text_input("Email")
+        telefono = st.text_input("Numero Telefono")
         identificacion = st.text_input("Identificación")
         
         enviar = st.form_submit_button("Enviar")
@@ -15,7 +16,8 @@ def show_form_user():
                 form_data = {
                     'nombre': nombre,
                     'email': email,
-                    'id': identificacion
+                    'id': identificacion,
+                    'telefono': telefono
                 }
                 
                 # Ejecutar el servicio para procesar los datos
@@ -33,7 +35,8 @@ def get_form_data_user():
     return {
         'nombre': st.session_state.get('nombre', ''),
         'email': st.session_state.get('email', ''),
-        'id': st.session_state.get('id', '')
+        'id': st.session_state.get('id', ''),
+        'telefono': st.session_state.get('telefono', '')
     }
 
 def activate_form_user():
