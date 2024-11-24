@@ -24,7 +24,7 @@ git-filter-repo==2.45.0
 gitdb==4.0.11
 GitPython==3.1.43
 google-api-core==2.23.0
-google-api-python-client==2.152.0
+google-api-python-client==2.154.0
 google-auth==2.36.0
 google-auth-httplib2==0.2.0
 google-auth-oauthlib==1.2.1
@@ -71,6 +71,7 @@ pydeck==0.9.1
 Pygments==2.18.0
 pyparsing==3.2.0
 python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
 pytz==2024.2
 pywin32==308
 pyzmq==26.2.0

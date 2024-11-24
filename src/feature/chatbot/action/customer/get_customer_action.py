@@ -1,6 +1,7 @@
 from typing import  Optional
 from feature.chatbot.api.customer_api import get_customer_api, create_customer_api
 from feature.chatbot.models.customer_model import CustomerModel
+from feature.chatbot.utils.json_utils import save_to_json
 
 
 def get_customer_action(correo: str):
@@ -46,9 +47,11 @@ def create_customer_action(data: CustomerModel) -> Optional[CustomerModel]:
 
         # Validar la respuesta de la API
         if response :
+            save_to_json({"status_appointment": True})
             return response
         else:
             print("Error al crear el cliente.")
+            save_to_json({"status_appointment": False})
             return None
 
     except Exception as e:

@@ -13,9 +13,11 @@ def get_welcome_message():
 def get_interest_query_message():
     """Devuelve el mensaje de consulta sobre el área de interés como string."""
     return (
-        "🔍 **¿En qué área necesitas asesoría o quieres agendar una cita?**\n"
-        "Selecciona la opción adecuada y organizaremos tu cita a la brevedad. 😊"
+        "🔍 **¿En qué área necesitas asesoría?**\n"
+        "¿Quieres agendar una cita o prefieres revisar tus casos pendientes?\n"
+        "Selecciona la opción adecuada y te ayudaremos a la brevedad. 😊"
     )
+
 
 def get_service_details_message(service, idx):
     """Despliega detalles del servicio seleccionado."""
@@ -28,6 +30,13 @@ def get_service_details_message(service, idx):
         st.markdown(f"💰 **Precio**: ${service.precio_servicio}")
         st.markdown("Si te interesa, **¡contáctanos para agendar tu cita!** 😊")
         st.session_state[f"expander_{idx}"] = not st.session_state[f"expander_{idx}"]
+
+def handle_schedule_appointment() -> list:
+    """Maneja el flujo para agendar citas."""
+    return [
+        "🔍 **¿En qué área necesitas asesoría para agendar una cita?**",
+        "Selecciona la opción adecuada y organizaremos tu cita a la brevedad. 😊"
+    ]
 
 
 def get_specialties_message():
@@ -64,3 +73,26 @@ SERVICE_SELECTION_MESSAGE = (
     "para el servicio **{nombre_servicio}**. 💼\n"
     "\n🎉 Opción seleccionada correctamente. ¿Te gustaría confirmar esta cita? (responde 'sí'✅ o 'no'❌)"
 )
+
+def create_custom_message(data, estimated_time):
+    """
+    Genera un mensaje personalizado para el usuario.
+    
+    :param data: Diccionario con la información del usuario (incluye 'nombre').
+    :param estimated_time: Diccionario con los detalles de la cita (incluye 'start_time').
+    :return: Cadena con el mensaje personalizado.
+    """
+    return (
+        f"Estimado/a {data['nombre']},\n\n"
+        f"Le recordamos que tiene una cita programada para el día {estimated_time['start_time']}.\n"
+        f"📧 Por favor, revise su correo electrónico para aceptar la invitación a la reunión. "
+        f"En caso de no encontrarla en su bandeja de entrada, le sugerimos revisar también su carpeta de spam o correo no deseado.\n\n"
+        f"Gracias por su atención.\n\n"
+        f"Saludos cordiales."
+    )
+
+# Ejemplo de uso
+data = {'nombre': 'Juan Pérez'}
+estimated_time = {'start_time': '25 de noviembre a las 10:00 AM'}
+message = create_custom_message(data, estimated_time)
+print(message)

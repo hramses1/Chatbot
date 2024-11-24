@@ -5,6 +5,8 @@ import pickle
 import os
 from google.auth.transport.requests import Request
 
+from feature.chatbot.utils.json_utils import save_to_json
+
 # Configuración de los permisos de Google Calendar
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 CREDENTIALS_FILE = "./src/feature/chatbot/utils/credentials.json"
@@ -188,6 +190,10 @@ def crear_evento_google_calendar(
                         )
                         .execute()
                     )
+                    save_to_json({
+                        "Fecha y hora de inicio": inicio_datetime.strftime('%Y-%m-%d %H:%M'),
+                        "Fecha y hora de fin": fin_datetime.strftime('%Y-%m-%d %H:%M')
+                    })
 
                     print(f"Evento creado exitosamente: {event_result.get('htmlLink')}")
                     return  # Salir de la función al crear el evento exitosamente
