@@ -5,6 +5,9 @@ from feature.chatbot.services.other_service import get_welcome_message
 from feature.chatbot.view.form_email import show_form_email
 from feature.chatbot.view.message_state import get_messages, add_message
 from feature.chatbot.view.form_user import show_form_user
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 def display_chatbot():
     """Función principal para mostrar el chatbot."""
@@ -65,6 +68,19 @@ def display_chatbot():
     else:
         with st.form(key='user_input_form', clear_on_submit=True):
             st.text_input("Tu:", key='user_input', placeholder="Escribe un mensaje...")
-            if st.form_submit_button("Enviar"):
-                handle_user_input()
-                render_chat()
+            col1, col2 = st.columns([3, 1])  # Crear dos columnas para los botones
+
+            with col1:
+                if st.form_submit_button("Enviar"):
+                    handle_user_input()
+                    render_chat()
+            
+            with col2:
+                if st.form_submit_button("Volver a la landing"):
+                    # Redirigir a la URL proporcionada
+                    st.markdown(
+                        f"""
+                        <meta http-equiv="refresh" content="0; url={os.getenv("LANDING_PAGE_URL")}">
+                        """,
+                        unsafe_allow_html=True
+                    )

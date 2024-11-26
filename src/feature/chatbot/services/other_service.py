@@ -49,7 +49,7 @@ def get_specialties_message():
     # Crear un mensaje más visual usando un formato de lista
     specialties_message = "**🌟 Áreas de Especialidad:**\n"
     for index, specialty in enumerate(specialties, start=1):
-        specialties_message += f"- **{index}. {specialty.name}**: {specialty.description}\n"
+        specialties_message += f"- **{specialty.name}**: {specialty.description}\n"
     
     return specialties_message
 # Mensaje para seleccionar especialidades
