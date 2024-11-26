@@ -25,12 +25,14 @@ class FormDataService:
             estimated_time = data.get("appointment_timing")
             status_appointment = data.get("status_appointment")
             
+            
+            # Envio de mensaje por WhatsApp
             response = send_message_service(
             to=f"+593{self.data['telefono']}",
             message_type="simple",
             message=create_custom_message(self.data, estimated_time ) )
-            
             print("Respuesta:", response)
+            #--------------------------------------------------------------#
 
             if not status_appointment:
                 st.success(f"Bienvenido de nuevo, {self.data['nombre']}. Tus datos han sido recibidos.")
