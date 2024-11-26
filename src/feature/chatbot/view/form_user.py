@@ -1,18 +1,54 @@
+import re
 import streamlit as st
 from feature.chatbot.services.form_data_service import FormDataService
 
+# Función para validar email
+def is_valid_email(email):
+    """Valida que el email tenga un formato correcto."""
+    email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    return re.match(email_regex, email) is not None
+
+# Función para validar número de teléfono ecuatoriano
+def is_valid_ecuadorian_phone(phone):
+    """
+    Valida si el número de teléfono ingresado es un número ecuatoriano válido.
+    Un número válido tiene:
+    - 10 dígitos
+    - Inicia con un dígito entre 2 y 7 para líneas fijas o 9 para móviles
+    """
+    phone_regex = r'^(?:09\d{8}|(?:02|03|04|05|06|07)\d{7})$'
+    return re.match(phone_regex, phone) is not None
+
 def show_form_user():
     """Formulario para recopilar información del usuario."""
-    with st.form("Peticion de información"):
+    with st.form("Petición de información"):
+        # Campos de entrada del formulario
         nombre = st.text_input("Nombre")
         email = st.text_input("Email")
-        telefono = st.text_input("Numero Telefono")
+        telefono = st.text_input("Número Teléfono")
         identificacion = st.text_input("Identificación")
         
+        # Botón para enviar
         enviar = st.form_submit_button("Enviar")
+        
+        # Validaciones individuales
+        errors = []
         if enviar:
-            if nombre and email and identificacion:
-                # Crear un diccionario con los datos del formulario
+            if not nombre:
+                errors.append("El campo 'Nombre' es obligatorio.")
+            if not email or not is_valid_email(email):
+                errors.append("El campo 'Email' no es válido.")
+            if not telefono or not is_valid_ecuadorian_phone(telefono):
+                errors.append("El campo 'Número Teléfono' no es válido.")
+            if not identificacion:
+                errors.append("El campo 'Identificación' es obligatorio.")
+
+            # Mostrar errores individuales
+            if errors:
+                for error in errors:
+                    st.error(error)
+            else:
+                # Crear un diccionario con los datos del formulario si todo es válido
                 form_data = {
                     'nombre': nombre,
                     'email': email,
@@ -27,9 +63,6 @@ def show_form_user():
                 # Restablecer el estado para evitar que el formulario se muestre de nuevo
                 st.session_state['show_form_user'] = False
                 st.rerun()
-            else:
-                st.error("Por favor, completa todos los campos.")
-
 
 def get_form_data_user():
     return {
@@ -41,4 +74,3 @@ def get_form_data_user():
 
 def activate_form_user():
     st.session_state['show_form_user'] = True
-    

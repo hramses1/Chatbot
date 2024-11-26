@@ -65,6 +65,19 @@ def display_chatbot():
     else:
         with st.form(key='user_input_form', clear_on_submit=True):
             st.text_input("Tu:", key='user_input', placeholder="Escribe un mensaje...")
-            if st.form_submit_button("Enviar"):
-                handle_user_input()
-                render_chat()
+            col1, col2 = st.columns([3, 1])  # Crear dos columnas para los botones
+
+            with col1:
+                if st.form_submit_button("Enviar"):
+                    handle_user_input()
+                    render_chat()
+
+            with col2:
+                if st.form_submit_button("Volver a la landing"):
+                    # Redirigir a la URL proporcionada
+                    st.markdown(
+                        """
+                        <meta http-equiv="refresh" content="0; url=https://lawyer-landing-app.netlify.app/">
+                        """,
+                        unsafe_allow_html=True
+                    )
