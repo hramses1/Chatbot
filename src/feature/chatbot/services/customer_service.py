@@ -36,13 +36,14 @@ def crear_o_actualizar_cliente(user_info, service_details,observed):
         # Si el cliente ya existe
         if not created_customer:
             existing_customer = get_customer_action(user_info['email'])
-            customer_id = existing_customer['items'][0]['id']
+            
+            customer_id = existing_customer[0]['id']
             print(f"Cliente existente: {user_info['nombre']} (ID: {customer_id})")
         else:
             customer_id = created_customer['id']
             print(f"Cliente creado exitosamente: {user_info['nombre']} (ID: {customer_id})")
             
-            
+        print(customer_id)
 
         # Crear cita
         appointment_data = {
