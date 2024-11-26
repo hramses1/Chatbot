@@ -47,7 +47,8 @@ def get_all_data_from_json(file_path="./src/feature/chatbot/utils/conversation_l
         "is_selection_valid": False,
         "user_info": None,
         "appointment_timing": None,
-        "status_appointment": False
+        "status_appointment": False,
+        "state_chat": None
     }
 
     for entry in data:
@@ -79,6 +80,9 @@ def get_all_data_from_json(file_path="./src/feature/chatbot/utils/conversation_l
             }
         elif 'status_appointment' in entry:
             result['status_appointment'] = entry['status_appointment']
+        
+        elif 'state_chat' in entry:
+            result['state_chat'] = entry['state_chat']
 
     return result
 
