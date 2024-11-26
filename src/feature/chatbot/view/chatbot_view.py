@@ -5,6 +5,10 @@ from feature.chatbot.services.other_service import get_welcome_message
 from feature.chatbot.view.form_email import show_form_email
 from feature.chatbot.view.message_state import get_messages, add_message
 from feature.chatbot.view.form_user import show_form_user
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def display_chatbot():
     """Función principal para mostrar el chatbot."""
@@ -12,7 +16,7 @@ def display_chatbot():
     # Inicializar estados si no están definidos
     if 'show_form_user' not in st.session_state:
         st.session_state['show_form_user'] = False
-        
+
     if 'show_form_email' not in st.session_state:
         st.session_state['show_form_email'] = False
 
@@ -46,25 +50,43 @@ def display_chatbot():
                     if response:
                         bot_message = {"sender": "bot", "text": response}
                         add_message(bot_message)
-            
-            # Verificar si se debe activar el formulario
-            if bot_response.get("activate_form", False):
-                st.session_state['show_form_user'] = True
-                st.rerun() # Forzar la recarga para que el formulario aparezca inmediatamente
+
+            # Verificar si se debe activar algún formulario
+            if bot_response.get("activate_form", "user") == "user":
+                set_active_form("show_form_user")
+            elif bot_response.get("activate_form", "email") == "email":
+                set_active_form("show_form_email")
 
             render_chat()
 
+    def set_active_form(form_name):
+        """Asegura que solo un formulario esté activo a la vez."""
+        st.session_state['show_form_user'] = form_name == 'show_form_user'
+        st.session_state['show_form_email'] = form_name == 'show_form_email'
+        st.rerun()
+
     render_chat()  # Renderizar el chat al cargar la página
 
-    # Mostrar el formulario de entrada de usuario o el formulario de contacto
-    if st.session_state.get('show_form_user', False):
+    # Mostrar el formulario correspondiente
+    if st.session_state['show_form_user']:
         show_form_user()
-    if st.session_state.get('show_form_email', False):
-        show_form_email()    
-        
+    elif st.session_state['show_form_email']:
+        show_form_email()
     else:
         with st.form(key='user_input_form', clear_on_submit=True):
             st.text_input("Tu:", key='user_input', placeholder="Escribe un mensaje...")
-            if st.form_submit_button("Enviar"):
-                handle_user_input()
-                render_chat()
+            col1, col2 = st.columns([3, 1])  # Crear dos columnas para los botones
+
+            with col1:
+                if st.form_submit_button("Enviar"):
+                    handle_user_input()
+            
+            with col2:
+                if st.form_submit_button("Volver a la landing"):
+                    # Redirigir a la URL proporcionada
+                    st.markdown(
+                        f"""
+                        <meta http-equiv="refresh" content="0; url={os.getenv("LANDING_PAGE_URL")}">
+                        """,
+                        unsafe_allow_html=True
+                    )
