@@ -1,7 +1,6 @@
 import streamlit as st
 from feature.chatbot.action.customer.get_customer_action import get_customer_action
 import time
-from jinja2 import Template
 from feature.chatbot.action.view.get_service_user_view_action import get_customer_state_cases
 from feature.chatbot.services.email_service import EmailService
 from feature.chatbot.services.render_email_service import RenderService
@@ -34,12 +33,11 @@ class FormDataEmailService:
                     # Mostrar mensaje adicional para recordar al usuario revisar su correo electrónico
                 st.info("📧 Por favor, revisa tu correo electrónico para poder revisar tus seguimientos. Si no la encuentras, revisa también tu carpeta de spam o correo no deseado.")
             
-                st.info("⏱️ En 10 segundos volvera al inicio, Muchas gracias por usar nuestro servicio!.")
-                print()
-            else:
+                st.info("⏱️ En 10 segundos volvera al inicio, Muchas gracias por usar nuestro servicio!")
+            if result_user == []:
                 st.error("No se encontro el usuario con el email ingresado. Para que seas registrado tienes que agendar una cita.")
-                return
-            
+                st.info("⏱️ En 10 segundos volvera al inicio, Muchas gracias por usar nuestro servicio!")
+
             time.sleep(3)
             
             # Configurar un estado para retrasar el reinicio del chat
