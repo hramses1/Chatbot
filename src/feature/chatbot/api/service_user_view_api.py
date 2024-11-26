@@ -11,4 +11,4 @@ def get_service_user_for_id_specialty_api(id_specialty: str):
 
 
 def get_customer_state_cases_api(email: str):
-    return Axios().get(f"/api/collections/cliente_caso_correo_vista/records?filter=(correo_cliente='{email}')")
+    return Axios().get(f"/collections/cliente_caso_correo_vista/records?filter=(correo_cliente='{email}')")

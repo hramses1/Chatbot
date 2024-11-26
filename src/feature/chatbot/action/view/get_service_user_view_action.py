@@ -1,6 +1,8 @@
 from typing import List, Optional
+from feature.chatbot.models.customer_state_cases_model import ClienteCasoCorreoResponse
 from feature.chatbot.models.service_user_view_model import ServiceUserViewModel
 from feature.chatbot.api.service_user_view_api import (
+    get_customer_state_cases_api,
     get_service_user_for_user_api,
     get_service_user_for_id_specialty_api
 )
@@ -90,3 +92,29 @@ def get_service_user_by_specialty(id_specialty: str) -> Optional[List[ServiceUse
     except Exception as e:
         print(f"Error al obtener los servicios para la especialidad {id_specialty}: {e}")
         return None
+from typing import Optional
+from pydantic import ValidationError
+
+def get_customer_state_cases(email: str) -> Optional[ClienteCasoCorreoResponse]:
+    """
+    Función para obtener los casos de estado de un cliente basado en su correo electrónico.
+    """
+    try:
+        # Realiza la llamada a la API pasando el parámetro email
+        response = get_customer_state_cases_api(email)
+
+        # Accede al contenido JSON de la respuesta
+        api_response = response  # Convertimos el Response en un diccionario
+
+        # Valida y convierte la respuesta al modelo
+        customer_cases = ClienteCasoCorreoResponse(**api_response)
+        return customer_cases
+    except ValidationError as e:
+        # Manejo de errores de validación del modelo
+        print(f"Error de validación de datos: {e}")
+        return None
+    except RuntimeError as e:
+        # Manejo de errores de conexión con la API
+        print(f"Error al obtener los casos del cliente: {e}")
+        return None
+
