@@ -2,6 +2,7 @@ import streamlit as st
 from feature.chatbot.components.chatbot_window import chat_window
 from feature.chatbot.services.response_services import MessageService
 from feature.chatbot.services.other_service import get_welcome_message
+from feature.chatbot.view.form_email import show_form_email
 from feature.chatbot.view.message_state import get_messages, add_message
 from feature.chatbot.view.form_user import show_form_user
 
@@ -11,6 +12,9 @@ def display_chatbot():
     # Inicializar estados si no están definidos
     if 'show_form_user' not in st.session_state:
         st.session_state['show_form_user'] = False
+        
+    if 'show_form_email' not in st.session_state:
+        st.session_state['show_form_email'] = False
 
     if 'welcome_shown' not in st.session_state:
         st.session_state['welcome_shown'] = True
@@ -55,6 +59,9 @@ def display_chatbot():
     # Mostrar el formulario de entrada de usuario o el formulario de contacto
     if st.session_state.get('show_form_user', False):
         show_form_user()
+    if st.session_state.get('show_form_email', False):
+        show_form_email()    
+        
     else:
         with st.form(key='user_input_form', clear_on_submit=True):
             st.text_input("Tu:", key='user_input', placeholder="Escribe un mensaje...")

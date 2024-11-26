@@ -26,7 +26,7 @@ class MessageService:
 
         elif intent == "review_cases":
             responses.extend(handle_case_review())
-            return {"responses": responses, "activate_form": False}
+            return {"responses": responses, "show_form_email": True}
 
         # Continuar con el flujo normal si no se detecta una intención específica
         if st.session_state.get("awaiting_confirmation", False):

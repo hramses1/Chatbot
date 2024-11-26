@@ -16,7 +16,7 @@ def get_customer_action(correo: str):
     """
     try:
         response = get_customer_api(correo)
-        return response
+        return response['items'] if response else None
 
     except Exception as e:
         print(f"Error al obtener el cliente: {e}")

@@ -90,9 +90,3 @@ def create_custom_message(data, estimated_time):
         f"Gracias por su atención.\n\n"
         f"Saludos cordiales."
     )
-
-# Ejemplo de uso
-data = {'nombre': 'Juan Pérez'}
-estimated_time = {'start_time': '25 de noviembre a las 10:00 AM'}
-message = create_custom_message(data, estimated_time)
-print(message)

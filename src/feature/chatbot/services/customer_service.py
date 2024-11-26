@@ -20,7 +20,7 @@ def crear_evento_para_cliente(user_info, service_details, fecha_actual):
     except Exception as e:
         print(f"Error al crear evento para {user_info['nombre']}: {e}")
 
-def crear_o_actualizar_cliente(user_info, service_details):
+def crear_o_actualizar_cliente(user_info, service_details,observed):
     """Crea o actualiza un cliente y genera una cita."""
     try:
         # Crear cliente
@@ -41,13 +41,15 @@ def crear_o_actualizar_cliente(user_info, service_details):
         else:
             customer_id = created_customer['id']
             print(f"Cliente creado exitosamente: {user_info['nombre']} (ID: {customer_id})")
+            
+            
 
         # Crear cita
         appointment_data = {
             "cliente": customer_id,
             "usuario": service_details["id_usuario"],
             "estado_caso": "En curso",
-            "observacion": "Primera consulta",
+            "observacion": observed,
             "fecha_cita": datetime.now().isoformat()
         }
         detail_data = {
@@ -67,6 +69,8 @@ def process_form_submission():
         data = get_all_data_from_json()
         user_info = data.get("user_info")
         service_details = data.get("service_details")
+        observed = f"Tienes un servicio {service_details['nombre_servicio']}, con el abogado {service_details['nombre_usuario']}: {service_details['correo_usuario']}"
+
 
         # Validar datos necesarios
         if not user_info or not service_details:
@@ -76,7 +80,7 @@ def process_form_submission():
         print(f"Procesando usuario: {user_info['nombre']} ({user_info['email']})")
 
         # Procesar cliente y cita
-        crear_o_actualizar_cliente(user_info, service_details)
+        crear_o_actualizar_cliente(user_info, service_details,observed)
 
         # Crear evento en Google Calendar
         fecha_actual = datetime.now().strftime("%Y-%m-%d")

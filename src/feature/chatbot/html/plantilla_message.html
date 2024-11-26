@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #faf6f6;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #734222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .section {
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #734222;
+            font-size: 20px;
+        }
+        .info p {
+            margin: 5px 0;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table th, table td {
+            border: 1px solid #e9ecef;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #734222;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Consultorio Jurídico</h1>
+            <p>Resumen de Información</p>
+        </div>
+
+        <!-- Usuario -->
+        <div class="section">
+            <h2>Información del Usuario</h2>
+            <div class="info">
+                <p><strong>Nombre:</strong> {{ nombre }}</p>
+                <p><strong>Correo:</strong> {{ correo }}</p>
+                <p><strong>Identificación:</strong> {{ identificacion }}</p>
+                <p><strong>Correo Verificado:</strong> {{ correo_verificado }}</p>
+                <p><strong>Fecha de Creación:</strong> {{ created }}</p>
+            </div>
+        </div>
+
+        <!-- Casos -->
+        <div class="section">
+            <h2>Casos Asignados</h2>
+            <p><strong>Total Casos:</strong> {{ totalItems }}</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha de Cita</th>
+                            <th>Estado</th>
+                            <th>Observación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for caso in items %}
+                        <tr>
+                            <td>{{ caso.fecha_cita }}</td>
+                            <td>{{ caso.estado_caso }}</td>
+                            <td>{{ caso.observacion }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 Consultorio Jurídico. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
