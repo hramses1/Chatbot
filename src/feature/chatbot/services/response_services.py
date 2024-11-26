@@ -6,6 +6,9 @@ from feature.chatbot.handlers.case_handler import handle_case_review
 from feature.chatbot.services.other_service import handle_schedule_appointment
 import streamlit as st
 
+from feature.chatbot.utils.json_utils import get_all_data_from_json
+from feature.chatbot.utils.json_utils import clear_json
+
 class MessageService:
     def __init__(self, user_input: str):
         self.user_input = user_input.lower().strip()
@@ -17,26 +20,39 @@ class MessageService:
     def generate_multiple_responses(self) -> dict:
         """Genera respuestas del bot y devuelve un diccionario."""
         responses = []
-
+        data = get_all_data_from_json()
+        
+        area_is_valid = data.get("area")
         # Detectar intención principal
-        intent = detect_intent(self.user_input)
-        if intent == "schedule_appointment":
-            responses.extend(handle_schedule_appointment())
-            return {"responses": responses, "activate_form": False}
+        valid=detect_intent(self.user_input)
+        intent = data.get("state_chat") or valid
+        if intent == "schedule_appointment" or area_is_valid:
+            if valid is not None and not area_is_valid:
+                responses.extend(handle_schedule_appointment())
+            
+            if st.session_state.get("awaiting_confirmation", False):
+                handle_user_confirmation(self.user_input,responses)
+            
+            elif st.session_state.get("awaiting_option_selection", False):
+                handle_option_selection(responses)
+            
+            if valid is None and not area_is_valid:
+                handle_classification(self.user_input, responses)
+
+            return {
+                "responses": responses,
+                "activate_form": st.session_state.get("show_form_user", False),
+            }
 
         elif intent == "review_cases":
             responses.extend(handle_case_review())
             return {"responses": responses, "show_form_email": True}
-
-        # Continuar con el flujo normal si no se detecta una intención específica
-        if st.session_state.get("awaiting_confirmation", False):
-            handle_user_confirmation(self.user_input,responses)
-        elif st.session_state.get("awaiting_option_selection", False):
-            handle_option_selection(responses)
+        
         else:
-            handle_classification(self.user_input, responses)
+            return {
+                "responses":{
+                    "Lo siento, no entendí tu mensaje. Por favor, elige una de estas opciones: 'Agendar cita' o 'Revisar casos'."},
+                    "activate_form": st.session_state.get("show_form_user", False),
+                
+            }
 
-        return {
-            "responses": responses,
-            "activate_form": st.session_state.get("show_form_user", False),
-        }

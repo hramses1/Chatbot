@@ -1,1 +1,24 @@
-[]
+[
+    {
+        "area": "16sgtgey31ev3pg"
+    },
+    {
+        "id_servicio": "src3pf0ffpm7kmc",
+        "nombre_servicio": "Service de prueba",
+        "nombre_usuario": "Administrador",
+        "id_usuario": "98lq8w7jz4bos91",
+        "correo_usuario": "arismendihads@gmail.com",
+        "horario_fin": null,
+        "horario_usuario": {
+            "horario_fin": "18:01",
+            "horario_inico": "08:31",
+            "tiempo_consulta": 60
+        },
+        "tiempo_consulta": null,
+        "descripcion_servicio": "ddss",
+        "precio_servicio": 123.34
+    },
+    {
+        "state_chat": "schedule_appointment"
+    }
+]
