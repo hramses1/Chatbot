@@ -5,6 +5,9 @@ from feature.chatbot.services.other_service import get_welcome_message
 from feature.chatbot.view.form_email import show_form_email
 from feature.chatbot.view.message_state import get_messages, add_message
 from feature.chatbot.view.form_user import show_form_user
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 def display_chatbot():
     """Función principal para mostrar el chatbot."""
@@ -71,13 +74,13 @@ def display_chatbot():
                 if st.form_submit_button("Enviar"):
                     handle_user_input()
                     render_chat()
-
+            
             with col2:
                 if st.form_submit_button("Volver a la landing"):
                     # Redirigir a la URL proporcionada
                     st.markdown(
-                        """
-                        <meta http-equiv="refresh" content="0; url=https://lawyer-landing-app.netlify.app/">
+                        f"""
+                        <meta http-equiv="refresh" content="0; url={os.getenv("LANDING_PAGE_URL")}">
                         """,
                         unsafe_allow_html=True
                     )
