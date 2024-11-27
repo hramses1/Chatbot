@@ -81,24 +81,24 @@ def display_chatbot():
                 if st.form_submit_button("Enviar"):
                     handle_user_input()
             
-            with col2:
-                if st.form_submit_button("Volver a la landing"):
-                    # Obtener la URL de la landing desde las variables de entorno
-                    landing_url = os.getenv("LANDING_PAGE_URL")
+            # with col2:
+            #     if st.form_submit_button("Volver a la landing"):
+            #         # Obtener la URL de la landing desde las variables de entorno
+            #         landing_url = os.getenv("LANDING_PAGE_URL")
 
-                    # Mostrar un mensaje al usuario
-                    st.success("Redirigiéndote a la página principal...")
+            #         # Mostrar un mensaje al usuario
+            #         st.success("Redirigiéndote a la página principal...")
 
-                    # Redirigir inmediatamente utilizando HTML
-                    st.markdown(
-                        f"""
-                        <meta http-equiv="refresh" content="0; url={landing_url}">
-                        <noscript>
-                            <div style="margin-top: 20px;">
-                                Si no eres redirigido automáticamente, haz clic en este enlace: 
-                                <a href="{landing_url}">Ir a la página principal</a>
-                            </div>
-                        </noscript>
-                        """,
-                        unsafe_allow_html=True
-                    )
+            #         # Redirigir inmediatamente utilizando HTML
+            #         st.markdown(
+            #             f"""
+            #             <meta http-equiv="refresh" content="0; url={landing_url}">
+            #             <noscript>
+            #                 <div style="margin-top: 20px;">
+            #                     Si no eres redirigido automáticamente, haz clic en este enlace: 
+            #                     <a href="{landing_url}">Ir a la página principal</a>
+            #                 </div>
+            #             </noscript>
+            #             """,
+            #             unsafe_allow_html=True
+            #         )
