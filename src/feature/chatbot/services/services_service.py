@@ -34,7 +34,7 @@ def classify_selection_service() -> Tuple[Union[str, dict], bool]:
         area_id = data["area"]
         
         # Verificar que los servicios estén cargados en session_state
-        print(f"Servicios: {area_id}")
+        print(f"Area_id Seleccionada: {area_id}")
         services = get_service_user_by_specialty(area_id)
 
         len_service = len(services)

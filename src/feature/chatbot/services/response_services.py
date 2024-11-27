@@ -28,7 +28,7 @@ class MessageService:
         intent = data.get("state_chat") or valid
         if intent == "schedule_appointment" or area_is_valid:
             if valid is not None and not area_is_valid:
-                responses.extend(handle_schedule_appointment())
+                responses.append(handle_schedule_appointment())
             
             if st.session_state.get("awaiting_confirmation", False):
                 handle_user_confirmation(self.user_input,responses)
@@ -38,7 +38,10 @@ class MessageService:
             
             if valid is None and not area_is_valid:
                 handle_classification(self.user_input, responses)
-
+            
+            if valid is not None and area_is_valid:
+                clear_json()
+            
             return {
                 "responses": responses,
                 "activate_form": st.session_state.get("show_form_user", False),

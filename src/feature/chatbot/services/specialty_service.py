@@ -17,7 +17,7 @@ def classify_specialties(texto: str) -> Tuple[str, bool]:
         if specialty.name.lower() in normalized_text or specialty.description.lower() in normalized_text:
             services = get_service_user_by_specialty(specialty.id)
             if services:
-                print('Primero (coincidencia exacta)')
+                print(f'Se ha encontrado una coincidencia exacta, {specialty.name}')
                 clear_json()
                 return f"{specialty.id}", True
             else:
@@ -63,7 +63,7 @@ def classify_specialties(texto: str) -> Tuple[str, bool]:
             if specialty:
                 services = get_service_user_by_specialty(specialty.id)
                 if services:
-                    print('Primero (por puntuación)')
+                    print(f'Se ha encontrado una coincidencia exacta, {specialty.name}')
                     clear_json()
                     return f"{specialty.id}", True
                 else:
