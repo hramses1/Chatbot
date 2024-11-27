@@ -50,7 +50,6 @@ def create_customer_action(data: CustomerModel) -> Optional[CustomerModel]:
             save_to_json({"status_appointment": True})
             return response
         else:
-            print("Error al crear el cliente.")
             save_to_json({"status_appointment": False})
             return None
 

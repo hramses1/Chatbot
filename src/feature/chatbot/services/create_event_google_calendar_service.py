@@ -223,6 +223,3 @@ def crear_evento_google_calendar(
 
     print("No se encontró disponibilidad en los próximos días.")
 
-
-# Llamar a la función para listar los calendarios
-listar_calendarios()
