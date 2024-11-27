@@ -4,7 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 from email.header import Header
-from smtplib import SMTP, SMTP_SSL, SMTPException
+from smtplib import SMTP, SMTP_SSL
 from dotenv import load_dotenv
 
 # Cargar variables desde el archivo .env

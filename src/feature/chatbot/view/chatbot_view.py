@@ -81,12 +81,12 @@ def display_chatbot():
                 if st.form_submit_button("Enviar"):
                     handle_user_input()
             
-            with col2:
-                if st.form_submit_button("Volver a la landing"):
-                    # Redirigir a la URL proporcionada
-                    st.markdown(
-                        f"""
-                        <meta http-equiv="refresh" content="0; url={os.getenv("LANDING_PAGE_URL")}">
-                        """,
-                        unsafe_allow_html=True
-                    )
+            # with col2:
+            #     if st.form_submit_button("Volver a la landing"):
+            #         # Redirigir a la URL proporcionada
+            #         st.markdown(
+            #             f"""
+            #             <meta http-equiv="refresh" content="0; url={os.getenv("LANDING_PAGE_URL")}">
+            #             """,
+            #             unsafe_allow_html=True
+            #         )
