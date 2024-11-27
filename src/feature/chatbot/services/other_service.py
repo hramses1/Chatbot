@@ -31,13 +31,17 @@ def get_service_details_message(service, idx):
         st.markdown("Si te interesa, **¡contáctanos para agendar tu cita!** 😊")
         st.session_state[f"expander_{idx}"] = not st.session_state[f"expander_{idx}"]
 
-def handle_schedule_appointment() -> list:
-    """Maneja el flujo para agendar citas."""
-    return [
-        "🔍 **¿En qué área necesitas asesoría para agendar una cita?**",
-        "Selecciona la opción adecuada y organizaremos tu cita a la brevedad. 😊"
-    ]
+def handle_schedule_appointment() -> str:
+    """
+    Maneja el flujo para agendar citas.
 
+    Returns:
+        str: Mensaje breve para guiar al usuario en el proceso de agendar una cita.
+    """
+    return (
+        "🔍 **¿En qué área necesitas agendar una cita?**\n"
+        "Por ejemplo: **Derecho procesal**. Organizaremos tu cita pronto. 😊"
+    )
 
 def get_specialties_message():
     """Devuelve un mensaje con las especialidades disponibles como string."""

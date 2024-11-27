@@ -1,72 +1,79 @@
 import streamlit as st
 from feature.chatbot.services.other_service import SERVICE_SELECTION_MESSAGE
 from feature.chatbot.services.services_service import classify_selection_service, classify_servicies, format_service_details
+from feature.chatbot.utils.json_utils import get_all_data_from_json
 
 
 def handle_option_selection(responses: list):
-    """Maneja la selección del usuario para las opciones."""
-        # Intentar obtener los valores desde classify_selection_service()
-    result, is_result_valid = classify_selection_service()
+    """
+    Maneja la selección del usuario para las opciones disponibles.
 
-    # Verificar si el servicio retornado es válido y no está vacío
-    if not is_result_valid or not result:
-        responses.append(
-                "⚠️ Lo siento, en este momento no hay servicios disponibles para la especialidad seleccionada."
-        )
-        st.session_state["awaiting_option_selection"] = False
-        return
+    Args:
+        responses (list): Lista donde se almacenan las respuestas para mostrar al usuario.
+    """
+    try:
+        # Obtener valores desde classify_selection_service()
+        result, is_result_valid = classify_selection_service()
 
-        # Si result es un diccionario con información del servicio
-    if isinstance(result, dict):
-        confirmation_message = SERVICE_SELECTION_MESSAGE.format(
-            nombre_usuario=result["nombre_usuario"],
-            nombre_servicio=result["nombre_servicio"],
-        )
-        responses.append(confirmation_message)
-        st.session_state["awaiting_confirmation"] = True
-        st.session_state["awaiting_option_selection"] = False
-        return
+        # Validación inicial: Revisar si hay un resultado válido
+        if not is_result_valid or not result:
 
-    # Si result es una lista, obtener el número de servicios disponibles
-    if isinstance(result, list):
-        max_options = len(result)
-    else:
+            responses.append("🔄 Por favor, intenta seleccionar nuevamente.")
+            
+            # Lógica de reintento: Reasignar el estado para permitir nueva selección
+            st.session_state["awaiting_option_selection"] = True
+
+            # Volver a mostrar las opciones si `area` está disponible
+            export_area=get_all_data_from_json()
+            data = export_area.get("area")
+            if data:
+                responses.append("🔄 Mostrando nuevamente los servicios disponibles:")
+                classify_servicies(data)
+            else:
+                responses.append(
+                    "⚠️ No entendí tu selección. Por favor, utiliza el formato 'Opción 1', 'Opción 2', etc."
+                )
+            return
+
+        # Si result es un diccionario, manejar la confirmación
+        if isinstance(result, dict):
+            confirmation_message = SERVICE_SELECTION_MESSAGE.format(
+                nombre_usuario=result["nombre_usuario"],
+                nombre_servicio=result["nombre_servicio"],
+            )
+            responses.append(confirmation_message)
+            st.session_state["awaiting_confirmation"] = True
+            st.session_state["awaiting_option_selection"] = False
+            return
+
+        # Si result es una lista, procesar las opciones disponibles
+        if isinstance(result, list):
+            service_details = format_service_details(result)
+
+            if service_details:
+                confirmation_message = SERVICE_SELECTION_MESSAGE.format(
+                    nombre_usuario=service_details["nombre_usuario"],
+                    nombre_servicio=service_details["nombre_servicio"],
+                )
+                responses.append(confirmation_message)
+                st.session_state["awaiting_confirmation"] = True
+                st.session_state["awaiting_option_selection"] = False
+                return
+            else:
+                responses.append(
+                    "⚠️ No se encontraron detalles válidos para los servicios seleccionados. Por favor, selecciona nuevamente."
+                )
+                st.session_state["awaiting_option_selection"] = True
+                return
+
+        # Si el formato de result es inválido
         responses.append(
             "⚠️ Error interno: No se pudieron obtener las opciones. Inténtalo de nuevo más tarde."
         )
-        return
+        st.session_state["awaiting_option_selection"] = True
 
-    service_details = format_service_details(result)
-
-    if service_details:
-        st.session_state["awaiting_confirmation"] = True
-        st.session_state["awaiting_option_selection"] = False
-            # Enviar el mensaje personalizado utilizando SERVICE_SELECTION_MESSAGE
-        confirmation_message = SERVICE_SELECTION_MESSAGE.format(
-            nombre_usuario=service_details["nombre_usuario"],
-            nombre_servicio=service_details["nombre_servicio"],
-        )
-        responses.append(confirmation_message)
-        responses.append(
-        "🎉 Opción seleccionada correctamente. ¿Te gustaría confirmar esta cita?")
-        return
-    else:
-        # Si la opción está fuera del rango, volver a mostrar la lista de servicios
-        responses.append(
-            f"⚠️ La opción {result} no es válida. Por favor, selecciona una opción entre 1 y {max_options}."
-        )
-        responses.append("🔄 Mostrando nuevamente los servicios disponibles:")
-        data = st.session_state.get("area")
-    if data:
-        classify_servicies(
-            data
-        )  # Volver a mostrar los servicios disponibles
-    else:
-            # Si el formato de la entrada es incorrecto, volver a mostrar los servicios
-        responses.append(
-            "⚠️ No entendí tu selección. Por favor, utiliza el formato 'Opción 1', 'Opción 2', etc."
-        )
-        responses.append("🔄 Mostrando nuevamente los servicios disponibles:")
-        data = st.session_state.get("area")
-        if data:
-            classify_servicies(data)
+    except Exception as e:
+        # Manejo de errores inesperados
+        responses.append("⚠️ Ha ocurrido un error inesperado. Por favor, inténtalo nuevamente.")
+        responses.append(f"🔧 Detalles del error: {str(e)}")
+        st.session_state["awaiting_option_selection"] = True
