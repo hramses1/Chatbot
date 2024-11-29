@@ -1,3 +1,4 @@
+import math
 import re
 import streamlit as st
 from feature.chatbot.services.form_data_service import FormDataService
@@ -18,6 +19,26 @@ def is_valid_ecuadorian_phone(phone):
     """
     phone_regex = r'^(?:09\d{8}|(?:02|03|04|05|06|07)\d{7})$'
     return re.match(phone_regex, phone) is not None
+
+def verified_indetification(cedula=""):
+    if len(cedula) != 10:
+        return False
+    else:
+        multiplicador = [2, 1, 2, 1, 2, 1, 2, 1, 2]
+        ced_array = map(lambda k: int(k), list(cedula))[0:9]
+        ultimo_digito = int(cedula[9])
+        resultado = []
+        arr = map(lambda x, j: (x, j), ced_array, multiplicador)
+        for (i, j) in arr:
+            if i * j < 10:
+                resultado.append(i * j)
+            else:
+                resultado.append((i * j)-9)
+                
+        if ultimo_digito == int(math.ceil(float(sum(resultado)) / 10) * 10) - sum(resultado):
+            return True
+        else:
+            return False
 
 def show_form_user():
     """Formulario para recopilar información del usuario."""

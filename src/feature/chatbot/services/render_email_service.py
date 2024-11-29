@@ -6,7 +6,7 @@ class RenderService:
         """
         Renderiza la plantilla HTML con los datos de casos dinámicos.
         """
-        template_path = "./src/feature/chatbot/html/plantilla_message.html"
+        template_path = "./feature/chatbot/html/plantilla_message.html"
 
         # Cargar la plantilla HTML
         with open(template_path, "r", encoding="utf-8") as file:

@@ -4,6 +4,7 @@ import json
 from typing import Tuple
 from feature.chatbot.action.specialty.get_specialties_action import get_specialties_action
 from feature.chatbot.action.view.get_service_user_view_action import get_service_user_by_specialty
+from feature.chatbot.api.groq_api import get_ai_response
 from feature.chatbot.utils.json_utils import clear_json, load_keywords
 
 def classify_specialties(texto: str) -> Tuple[str, bool]:
@@ -74,3 +75,9 @@ def classify_specialties(texto: str) -> Tuple[str, bool]:
             return f"He encontrado varias áreas que podrían interesarte: {areas_list}. ¿Podrías especificar cuál?", False
 
     return normalized_text, False
+
+def classify_specialties_ai(messages: str):
+    response = get_ai_response(messages)
+    is_valid = response != "0"
+
+    return response, is_valid

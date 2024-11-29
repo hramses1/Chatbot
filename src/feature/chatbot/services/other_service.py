@@ -1,6 +1,9 @@
 from feature.chatbot.action.specialty.get_specialties_action import get_specialties_action
 import streamlit as st
 
+from feature.chatbot.api.groq_api import get_ai_response
+from feature.chatbot.utils.bot_ultis import build_prompt_specialties
+
 def get_welcome_message():
     """Devuelve el mensaje de bienvenida como string."""
     return (
@@ -24,10 +27,10 @@ def get_service_details_message(service, idx):
     if f"expander_{idx}" not in st.session_state:
         st.session_state[f"expander_{idx}"] = False
 
-    with st.expander(f"⭐ **Opcion: {idx+1}** {service.nombre_servicio}", expanded=st.session_state[f"expander_{idx}"]):
-        st.markdown(f"👨‍⚖️ **Abogado**: {service.nombre_usuario}")
+    with st.expander(f"⭐ **Opcion: {idx+1}** 👨‍⚖️ **Abogado**: {service.nombre_usuario}", expanded=st.session_state[f"expander_{idx}"]):
+        st.markdown(f"**{service.nombre_servicio}**")
         st.markdown(f"📄 **Descripción**: {service.descripcion_servicio}")
-        st.markdown(f"💰 **Precio**: ${service.precio_servicio}")
+        # st.markdown(f"💰 **Precio**: ${service.precio_servicio}")
         st.markdown("Si te interesa, **¡contáctanos para agendar tu cita!** 😊")
         st.session_state[f"expander_{idx}"] = not st.session_state[f"expander_{idx}"]
 
@@ -39,8 +42,7 @@ def handle_schedule_appointment() -> str:
         str: Mensaje breve para guiar al usuario en el proceso de agendar una cita.
     """
     return (
-        "🔍 **¿En qué área necesitas agendar una cita?**\n"
-        "Por ejemplo: **Derecho procesal**. Organizaremos tu cita pronto. 😊"
+        "🔍 **Cuéntanos tu caso** y organizaremos tu cita. 😊"
     )
 
 def get_specialties_message():
@@ -52,8 +54,15 @@ def get_specialties_message():
 
     # Crear un mensaje más visual usando un formato de lista
     specialties_message = "**🌟 Áreas de Especialidad:**\n"
+    # print(specialties)
+    
+    prompt_specialties = build_prompt_specialties(specialties)
+
+    print(prompt_specialties)
+    get_ai_response(str(prompt_specialties))
+
     for index, specialty in enumerate(specialties, start=1):
-        specialties_message += f"- **{specialty.name}**: {specialty.description}\n"
+        specialties_message += f"- 💼 **{specialty.name}**\n"
     
     return specialties_message
 # Mensaje para seleccionar especialidades
