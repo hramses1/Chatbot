@@ -9,12 +9,12 @@ from feature.chatbot.utils.json_utils import save_to_json
 
 # Configuración de los permisos de Google Calendar
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
-CREDENTIALS_FILE = "./feature/chatbot/utils/credentials.json"
+CREDENTIALS_FILE = "./src/feature/chatbot/utils/credentials.json"
 
 
 def get_calendar_service():
     creds = None
-    token_path = "./feature/chatbot/utils/token.pickle"
+    token_path = "./src/feature/chatbot/utils/token.pickle"
 
     # Cargar token si existe
     if os.path.exists(token_path):
