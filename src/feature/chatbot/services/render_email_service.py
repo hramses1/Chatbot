@@ -21,13 +21,13 @@ class RenderService:
             "correo": user['correo'],
             "identificacion":user['identificacion'],
             "correo_verificado": user['correo_verificado'],
-            "created": user['created'],
+            "created": user['created'][:10],
             "page": getattr(data_cases, "page", 1),
             "totalPages": getattr(data_cases, "totalPages", 1),
             "totalItems": getattr(data_cases, "totalItems", 0),
             "items": [
                 {
-                    "fecha_cita": getattr(item, "fecha_cita", ""),
+                    "fecha_cita": getattr(item, "fecha_cita", "0000-00-00")[:10],
                     "estado_caso": getattr(item, "estado_caso", ""),
                     "observacion": getattr(item, "observacion", ""),
                 }

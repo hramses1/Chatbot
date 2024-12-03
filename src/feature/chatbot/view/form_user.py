@@ -1,4 +1,3 @@
-import math
 import re
 import streamlit as st
 from feature.chatbot.services.form_data_service import FormDataService
@@ -21,24 +20,42 @@ def is_valid_ecuadorian_phone(phone):
     return re.match(phone_regex, phone) is not None
 
 def verified_indetification(cedula=""):
-    if len(cedula) != 10:
+    # Verificar que la cédula tenga 10 dígitos y sea numérica
+    if len(cedula) != 10 or not cedula.isdigit():
         return False
+
+    # Extraer los dígitos necesarios
+    provincia = int(cedula[0:2])
+    tercer_digito = int(cedula[2])
+    digito_verificador = int(cedula[9])
+    coeficientes = [int(d) for d in cedula[0:9]]
+
+    # Validar el código de provincia (01-24, 30, 31)
+    if provincia < 1 or (provincia > 24 and provincia not in [30, 31]):
+        return False
+
+    # Validar el tercer dígito (0-6)
+    if tercer_digito > 6:
+        return False
+
+    suma = 0
+    for i in range(9):
+        num = coeficientes[i]
+        if i % 2 == 0:  # Posiciones impares (0 indexado)
+            num *= 2
+            if num > 9:
+                num -= 9
+        suma += num
+
+    # Calcular el dígito verificador
+    residuo = suma % 10
+    if residuo == 0:
+        digito_calculado = 0
     else:
-        multiplicador = [2, 1, 2, 1, 2, 1, 2, 1, 2]
-        ced_array = map(lambda k: int(k), list(cedula))[0:9]
-        ultimo_digito = int(cedula[9])
-        resultado = []
-        arr = map(lambda x, j: (x, j), ced_array, multiplicador)
-        for (i, j) in arr:
-            if i * j < 10:
-                resultado.append(i * j)
-            else:
-                resultado.append((i * j)-9)
-                
-        if ultimo_digito == int(math.ceil(float(sum(resultado)) / 10) * 10) - sum(resultado):
-            return True
-        else:
-            return False
+        digito_calculado = 10 - residuo
+
+    # Verificar si el dígito calculado coincide con el dígito verificador
+    return digito_calculado == digito_verificador
 
 def show_form_user():
     """Formulario para recopilar información del usuario."""
@@ -61,8 +78,8 @@ def show_form_user():
                 errors.append("El campo 'Email' no es válido.")
             if not telefono or not is_valid_ecuadorian_phone(telefono):
                 errors.append("El campo 'Número Teléfono' no es válido.")
-            if not identificacion:
-                errors.append("El campo 'Identificación' es obligatorio.")
+            if not identificacion or not verified_indetification(identificacion):
+                errors.append("El campo 'Identificación' no es válido.")
 
             # Mostrar errores individuales
             if errors:

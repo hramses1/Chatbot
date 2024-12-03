@@ -60,7 +60,9 @@ def classify_selection_service() -> Tuple[Union[str, dict], bool]:
         
         if service_details is not None:
             # Guardar los detalles del servicio seleccionado
+            print("antes", data)
             save_to_json(service_details)
+            print("despues", data)
             return service_details, True
         else:
             return None, False

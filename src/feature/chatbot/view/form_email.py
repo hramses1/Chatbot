@@ -13,7 +13,7 @@ def show_form_email():
     """Formulario para petición de EMAIL."""
     
     with st.form("Petición de información Email"):
-        email = st.text_input("Email")
+        email = st.text_input("Por favor, ingrese el correo electrónico con el que realizó la cita.")
         enviar = st.form_submit_button("Enviar")
         
         if enviar:

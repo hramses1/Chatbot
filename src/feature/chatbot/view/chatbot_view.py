@@ -75,18 +75,6 @@ def display_chatbot():
     else:
         with st.form(key='user_input_form', clear_on_submit=True):
             st.text_input("Tu:", key='user_input', placeholder="Escribe un mensaje...")
-            col1, col2 = st.columns([3, 1])  # Crear dos columnas para los botones
-
-            with col1:
-                if st.form_submit_button("Enviar"):
-                    handle_user_input()
             
-            # with col2:
-            #     if st.form_submit_button("Volver a la landing"):
-            #         # Redirigir a la URL proporcionada
-            #         st.markdown(
-            #             f"""
-            #             <meta http-equiv="refresh" content="0; url={os.getenv("LANDING_PAGE_URL")}">
-            #             """,
-            #             unsafe_allow_html=True
-            #         )
+            if st.form_submit_button("Enviar"):
+                handle_user_input()
