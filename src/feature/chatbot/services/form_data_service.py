@@ -45,12 +45,12 @@ class FormDataService:
             # Mostrar mensaje adicional para recordar al usuario revisar su correo electrónico
             st.info("📧 Por favor, revisa tu correo electrónico para aceptar la invitación a la reunión. Si no la encuentras, revisa también tu carpeta de spam o correo no deseado.")
             
-            st.info("⏱️ En 10 segundos volvera al inicio, Muchas gracias por usar nuestro servicio!.")
+            st.info("⏱️ En breve segundos volvera al inicio, Muchas gracias por usar nuestro servicio!.")
             # Configurar un estado para retrasar el reinicio del chat
             st.session_state['appointment_confirmed'] = True
             
             # Esperar unos segundos antes de reiniciar el chat
-            time.sleep(10)
+            time.sleep(20)
             
             # Reiniciar el estado para que el chatbot comience desde el inicio
             self.reset_chat()

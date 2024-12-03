@@ -27,6 +27,7 @@ class EmailService:
             subject = str(subject).encode("utf-8").decode("utf-8")
             html_template = str(html_template).encode("utf-8").decode("utf-8")
 
+            print(self.username)
             # Crear el mensaje
             message = MIMEMultipart()
             message["Subject"] = Header(subject, "utf-8")

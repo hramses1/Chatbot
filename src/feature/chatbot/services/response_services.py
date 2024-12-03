@@ -26,6 +26,9 @@ class MessageService:
         # Detectar intención principal
         valid=detect_intent(self.user_input)
         intent = data.get("state_chat") or valid
+
+        print(intent,area_is_valid)
+        
         if intent == "schedule_appointment" or area_is_valid:
             if valid is not None and not area_is_valid:
                 responses.append(handle_schedule_appointment())
@@ -39,8 +42,8 @@ class MessageService:
             if valid is None and not area_is_valid:
                 handle_classification(self.user_input, responses)
             
-            if valid is not None and area_is_valid:
-                clear_json()
+            # if valid is not None and area_is_valid:
+            #     clear_json()
             
             return {
                 "responses": responses,
@@ -54,7 +57,7 @@ class MessageService:
         else:
             return {
                 "responses":{
-                    "Lo siento, no entendí tu mensaje. Por favor, elige una de estas opciones: 'Agendar cita' o 'Revisar casos'."},
+                    "Lo siento, no entendí tu mensaje. Por favor, elige una de estas opciones: 'Agendar cita' o 'Consultar tus citas'."},
                     "activate_form": st.session_state.get("show_form_user", False),
                 
             }

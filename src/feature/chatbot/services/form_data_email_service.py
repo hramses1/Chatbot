@@ -33,10 +33,10 @@ class FormDataEmailService:
                     # Mostrar mensaje adicional para recordar al usuario revisar su correo electrónico
                 st.info("📧 Por favor, revisa tu correo electrónico para poder revisar tus seguimientos. Si no la encuentras, revisa también tu carpeta de spam o correo no deseado.")
             
-                st.info("⏱️ En 10 segundos volvera al inicio, Muchas gracias por usar nuestro servicio!")
+                st.info("⏱️ En breve volvera al inicio, Muchas gracias por usar nuestro servicio!")
             if result_user == []:
                 st.error("No se encontro el usuario con el email ingresado. Para que seas registrado tienes que agendar una cita.")
-                st.info("⏱️ En 10 segundos volvera al inicio, Muchas gracias por usar nuestro servicio!")
+                st.info("⏱️ En breve volvera al inicio, Muchas gracias por usar nuestro servicio!")
 
             time.sleep(3)
             
@@ -44,7 +44,7 @@ class FormDataEmailService:
             st.session_state['appointment_confirmed'] = True
             
             # Esperar unos segundos antes de reiniciar el chat
-            time.sleep(10)
+            time.sleep(20)
             
             # Reiniciar el estado para que el chatbot comience desde el inicio
             self.reset_chat()

@@ -49,7 +49,7 @@ def crear_o_actualizar_cliente(user_info, service_details,observed):
         appointment_data = {
             "cliente": customer_id,
             "usuario": service_details["id_usuario"],
-            "estado_caso": "En curso",
+            "estado_caso": "Aceptado",
             "observacion": observed,
             "fecha_cita": datetime.now().isoformat()
         }
